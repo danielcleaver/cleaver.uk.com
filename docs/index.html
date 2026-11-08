@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daniel Cleaver</title>
+    <meta name="description" content="Daniel Cleaver, IT consultant.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23363636'/><text x='16' y='22' font-family='sans-serif' font-size='16' fill='%23e4e4e4' text-anchor='middle'>C</text></svg>">
+    <style>
+        :root {
+            --ink: #e4e4e4;
+            --ink-dim: #a9a9a9;
+            --bg: #363636;
+            --bg-lift: #414141;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            background: var(--bg);
+            background-image: linear-gradient(135deg, var(--bg-lift) 0%, var(--bg) 55%);
+            color: var(--ink);
+            font-family: "Century Gothic", "URW Gothic", "Avant Garde", "Futura",
+            "Trebuchet MS", "Segoe UI", sans-serif;
+            font-weight: 300;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        main {
+            text-align: center;
+            max-width: 34rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(1.75rem, 6vw, 2.75rem);
+            font-weight: 300;
+            letter-spacing: 0.22em;
+            /* letter-spacing adds trailing space; nudge back to stay optically centred */
+            text-indent: 0.22em;
+        }
+
+        .role {
+            margin: 1.1rem 0 0;
+            font-size: clamp(0.75rem, 2.4vw, 0.9rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-indent: 0.3em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+        }
+
+        .contact {
+            margin: 2.75rem 0 0;
+            font-size: clamp(0.85rem, 3vw, 1rem);
+            letter-spacing: 0.08em;
+        }
+
+        .contact a {
+            color: var(--ink);
+            text-decoration: none;
+            padding-bottom: 0.2em;
+            border-bottom: 1px solid rgba(228, 228, 228, 0.3);
+            transition: border-color 0.2s ease;
+        }
+
+        .contact a:hover,
+        .contact a:focus-visible {
+            border-bottom-color: var(--ink);
+        }
+
+        .contact a:focus-visible {
+            outline: 2px solid var(--ink);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .contact a { transition: none; }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Daniel Cleaver</h1>
+    <p class="role">IT Consultant</p>
+    <p class="contact">
+        <a href="mailto:dan@cleaver.uk.com">dan@cleaver.uk.com</a>
+    </p>
+</main>
+</body>
+</html>
