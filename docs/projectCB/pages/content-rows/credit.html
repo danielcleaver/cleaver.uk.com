@@ -1,0 +1,281 @@
+<div class="overview-content-row-header row mt-2 gx-0 align-items-center align-items-stretch">
+    <div class="plus-minus col-auto pt-1"></div>
+    <div class="title col-auto p-1 ps-2"> </div>
+    <div class="tick col-auto ms-auto ps-2 pe-2"></div>
+    <div class="row-click-target" onclick="overviewToggleRow('credit');"></div>
+</div>
+<div class="overview-content-row-header-arrow row gx-0 justify-content-end expanded-negative">
+    <div class="col-auto content-header-row-left-hand-arrow"></div>
+    <div class="col-auto content-header-row-right-hand-arrow me-5"></div>
+</div>
+
+
+
+<!--///////////////////////////-->
+<!--<div class="overview-content-row-body row gx-0 expanded p-3">-->
+<!--    <div class="col-12 col-lg-9 me-3">-->
+<!--        <input id="period-from" data-readonly hidden>-->
+<!--        <input id="period-from-days" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden value="06/04">-->
+<!--        <input id="period-from-year" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden>-->
+<!--        <input id="period-to" data-readonly hidden>-->
+<!--        <input id="period-to-days" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden value="05/04">-->
+<!--        <input id="period-to-year" class="form-control p-2" onblur="touch(this);" data-readonly hidden onchange="validateOverview();" value="2024" >-->
+
+<!--        <div class="row mb-2 gx-0">-->
+<!--            <div class="col">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 mb-1">Period from</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2023</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2022</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2019</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2018</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 mb-1">Period to</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2024</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2023</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2020</div>-->
+<!--                    <div class="text-as-input me-1">06/04/2019</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-auto">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 ps-4 pe-4 mb-1">Credit</div>-->
+<!--                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check invisible"></i></div>-->
+<!--                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check"></i></div>-->
+<!--                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check invisible"></i></div>-->
+<!--                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check"></i></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-auto">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 ps-4 pe-4 mb-1">&nbsp;</div>-->
+<!--                    <div class="text-as-input text-center"><input type="radio" id="2024" name="creditYearChoice" value="2024" checked onchange="creditYearChanged(this);validateOverview();"></div>-->
+<!--                    <div class="text-as-input text-center"><input type="radio" id="2023" name="creditYearChoice" value="2023" onchange="creditYearChanged(this);validateOverview();"></div>-->
+<!--                    <div class="text-as-input text-center"><input type="radio" id="2020" name="creditYearChoice" value="2020" onchange="creditYearChanged(this);validateOverview();"></div>-->
+<!--                    <div class="text-as-input text-center"><input type="radio" id="2019" name="creditYearChoice" value="2019" onchange="creditYearChanged(this);validateOverview();"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+
+<!--        <div class="row mb-2 gx-0">-->
+<!--            <div class="col blue text-center p-2 ">-->
+<!--                <p class="fs-5">Use Ftax Agent Cashbook (<span id="credit-period-short">2025/26</span>)</p>-->
+<!--                <p>valid for transaction entry between <span id="credit-period-long">06/04/2025 to 05/04/2026</span></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+
+
+<!--    </div>-->
+<!--    <div class="col">-->
+<!--        <div class="d-flex flex-column align-items-start" style="height: 100%;">-->
+<!--            <div class="div mb-auto">-->
+<!--                <p class="small-coding-note">NOTE: This table is not fully implemented into the demo and, for example, will not update when you assign a credit</p>-->
+<!--            </div>-->
+<!--            <div class="div">-->
+<!--                <p class="small">Select the period then click below to continue.</p>-->
+<!--                &lt;!&ndash;        <p class="small">A credit may not yet be required. You will be prompted when a credit needs to be assigned.</p>&ndash;&gt;-->
+<!--                <button id="create" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="createClicked();">CONTINUE</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--///////////////////////////-->
+
+
+
+<div class="overview-content-row-body row gx-0 expanded p-3">
+    <div class="col-12 col-lg-9 me-3">
+
+
+        <input id="period-from" data-readonly hidden>
+        <input id="period-from-days" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden value="06/04">
+        <input id="period-from-year" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden>
+        <input id="period-to" data-readonly hidden>
+        <input id="period-to-days" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden value="05/04">
+        <input id="period-to-year" class="form-control p-2" onblur="touch(this);" data-readonly hidden onchange="validateOverview();" value="2024" >
+
+        <div class="row mb-2 gx-0">
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">Period from</div>
+                    <div class="text-as-input me-1">06/04/2023</div>
+                    <div class="text-as-input me-1">06/04/2022</div>
+                    <div class="text-as-input me-1">06/04/2019</div>
+                    <div class="text-as-input me-1">06/04/2018</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">Period to</div>
+                    <div class="text-as-input me-1">06/04/2024</div>
+                    <div class="text-as-input me-1">06/04/2023</div>
+                    <div class="text-as-input me-1">06/04/2020</div>
+                    <div class="text-as-input me-1">06/04/2019</div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="field-set">
+                    <div class="field-label p-2 ps-4 pe-4 mb-1">Credit</div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check invisible"></i></div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check"></i></div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check invisible"></i></div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check"></i></div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="field-set">
+                    <div class="field-label p-2 ps-4 pe-4 mb-1">&nbsp;</div>
+                    <div class="text-as-input text-center"><input type="radio" id="2024" name="creditYearChoice" value="2024" checked onchange="creditYearChanged(this);validateOverview();"></div>
+                    <div class="text-as-input text-center"><input type="radio" id="2023" name="creditYearChoice" value="2023" onchange="creditYearChanged(this);validateOverview();"></div>
+                    <div class="text-as-input text-center"><input type="radio" id="2020" name="creditYearChoice" value="2020" onchange="creditYearChanged(this);validateOverview();"></div>
+                    <div class="text-as-input text-center"><input type="radio" id="2019" name="creditYearChoice" value="2019" onchange="creditYearChanged(this);validateOverview();"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mb-2 gx-0">
+            <div class="col blue text-center p-2 ">
+                <p class="fs-5">Use Ftax Agent Cashbook (<span id="credit-period-short">2025/26</span>)</p>
+                <p>valid for transaction entry between <span id="credit-period-long">06/04/2025 to 05/04/2026</span></p>
+            </div>
+        </div>
+
+<!--        BANK FEED ////////////////////////////-->
+<!--        START TO HIDE-->
+<div class="d-none">
+        <div class="field-set mb-1">
+            <div class="field-label p-2">
+                <p class="fw-600">BANK FEED</p>
+            </div>
+        </div>
+
+        <div class="field-set ">
+            <div class="mb-1">
+                <div class="row gx-0 align-items-start align-items-stretch">
+                    <div class="col p-2 grey me-1">
+                        <p class="fw-600">Enable Bank Feeds (will require a credit)</p>
+                    </div>
+                    <div class="col-auto grey p-2 me-1">
+                        <div class="row align-items-stretdch">
+                            <div class="col">
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        Yes
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" id="bankfeed-required" onblur="touch(this);" onchange="mutuallyExclusive(['bankfeed-required','bankfeed-not-required']);bankfeedRequiredChanged(this);validateOverview();">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto grey p-2">
+                        <div class="row align-items-stretdch">
+                            <div class="col">
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        No
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" id="bankfeed-not-required" onblur="touch(this);" onchange="mutuallyExclusive(['bankfeed-not-required','bankfeed-required']);bankfeedRequiredChanged(this);validateOverview();">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANK FEED NOTES -->
+        <div id="bankfeed-notes" class="field-set field-set-blue">
+            <div class="field-label p-2 mb-1">
+                <div class="row align-items-start">
+                    <div class="col">
+<!--                        <p class="small">You will be able to setup your bank feeds in the Bank Feed panel below, once the cashbook is created and credited.</p>-->
+                        <p class="small">You will be able to setup your bank feeds in the Bank Feed panel below, once the cashbook is credited.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!--END HIDING-->
+
+
+        <div class="if-owned Xmt-3">
+
+            <div class="field-set">
+                <div class="field-label p-2 mb-1">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p id="credit-label-title" class="fw-600"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blue p-2 small mb-1">
+                <p id="credit-label-body"></p>
+            </div>
+
+            <div class="field-set field-set-grey not-credit-required">
+                <div class="field-label p-2 mb-1 not-credited">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p class="fw-600">Apply credit anyway</p>
+                        </div>
+                        <div class="col-auto">
+                            <div class="field-wrapper">
+                                <input type="checkbox" id="apply-credit-anyway" onblur="touch(this);" onchange="validateOverview();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="col Xmt-auto">
+
+        <div class="d-flex flex-column align-items-start" style="height: 100%;">
+            <div class="div mb-auto">
+<!--                <p class="small-coding-note">NOTE: This table is not fully implemented into the demo and, for example, will not update when you assign a credit</p>-->
+            </div>
+
+            <div class="div">
+                <div class="if-owned">
+                    <p id="credit-action-button-note-agent" class="small"></p>
+                    <button id="credit-continue" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="creditClicked();">CREDIT</button>
+                </div>
+                <div class="if-not-owned">
+                    <p class="small">Credits may only be applied by the owner of the cashbook.</p>
+                    <button id="credit-continue-not-owned" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="creditContinueClicked();">CONTINUE</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+<div class="overview-content-row-body-arrow row gx-0 justify-content-end expanded">
+    <div class="col-auto overview-content-row-body-arrow-left"><div class="overview-content-row-body-arrow-left-white"></div></div>
+    <div class="col-auto overview-content-row-body-arrow-right me-5"><div class="overview-content-row-body-arrow-right-white"></div></div>
+</div>

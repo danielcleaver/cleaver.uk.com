@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Ftax Cashbook Mockup</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!--Load the html include javascript - this allows us to keep each page as its own html file and insert them (multiple times if needed?)-->
+   <script src="js/htmlInclude.js"></script>
+
+   <!--Preconnect to google fonts-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+   <!--Primary font-->
+   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+   <!--Footer font-->
+   <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+   <!--Money font-->
+   <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap" rel="stylesheet">
+   <!--Small font-->
+   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+   <!--Bootstrap-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+   <!--Ftax Stylesheets-->
+   <link rel="stylesheet" type="text/css" href="pageFrames.css">
+   <link rel="stylesheet" type="text/css" href="webform.css">
+   <link rel="stylesheet" type="text/css" href="cashbook.css">
+   <link rel="stylesheet" type="text/css" href="printwebform.css" media="print">
+   <link rel="stylesheet" type="text/css" href="screenwebform.css" media="screen">
+
+   <!--Font Awesome-->
+   <script src="https://kit.fontawesome.com/351c5776af.js" crossorigin="anonymous"></script>
+
+   <!--Tingle modals-->
+   <link rel="stylesheet" type="text/css" href="tingle.css">
+   <script src="js/tingle.js"></script>
+
+   <!--Cashbook Scripts-->
+   <script src="js/generateCalculatedData.js"></script>
+   <script src="js/cashbookValues.js"></script>
+
+   <script src="js/entryTicked.js"></script>
+   <script src="js/entryData.js"></script>
+   <script src="js/addEntry.js"></script>
+   <script src="js/showReports.js"></script>
+   <script src="js/showFilters.js"></script>
+   <script src="js/showRecommendations.js"></script>
+   <script src="js/showFlags.js"></script>
+   <script src="js/flags.js"></script>
+   <script src="js/showTypeAndCategoryChooser.js"></script>
+   <script src="js/cashbook.js"></script>
+   <script src="js/setupEntries.js"></script>
+   <script src="js/refreshPage.js"></script>
+   <script src="js/refreshPageHeaderMenu.js"></script>
+   <script src="js/refreshPageHeaderSummaryBar.js"></script>
+   <script src="js/changePage.js"></script>
+   <script src="js/applyActions.js"></script>
+   <script src="js/refreshEntryList.js"></script>
+   <script src="js/showMore.js"></script>
+   <script src="js/saveEntry.js"></script>
+   <script src="js/deleteEntry.js"></script>
+   <script src="js/setTransactionType.js"></script>
+   <script src="js/setTransactionCategory.js"></script>
+   <script src="js/validateFields.js"></script>
+   <script src="js/drawLedgers.js"></script>
+   <script src="js/refreshLedgers.js"></script>
+   <script src="js/refreshTransactions.js"></script>
+   <script src="js/fieldChanged.js"></script>
+   <script src="js/getIndexFromGuid.js"></script>
+   <script src="js/formatCurrency.js"></script>
+   <script src="js/assignTransaction.js"></script>
+   <script src="js/assignInvoice.js"></script>
+   <script src="js/assignBill.js"></script>
+   <script src="js/showInvoicebill.js"></script>
+   <script src="js/capitalize.js"></script>
+   <script src="js/openEntry.js"></script>
+   <script src="js/copyContentToClipboard.js"></script>
+   <script src="js/humanReadableSourceType.js"></script>
+   <script src="js/populate.js"></script>
+   <script src="js/drawLineitem.js"></script>
+   <script src="js/refreshLineitems.js"></script>
+   <script src="js/addRemoveLineitem.js"></script>
+   <script src="js/pseudoSaveEntry.js"></script>
+   <script src="js/makeDateHumanReadable.js"></script>
+   <script src="js/calcLineitem.js"></script>
+   <script src="js/checkLineitem.js"></script>
+   <script src="js/calcTransaction.js"></script>
+   <script src="js/checkTransaction.js"></script>
+   <script src="js/checkInvoice.js"></script>
+   <script src="js/checkBill.js"></script>
+   <script src="js/cashbookValuesProcessing.js"></script>
+   <script src="js/hideUnhideElement.js"></script>
+   <script src="js/refreshInvoices.js"></script>
+   <script src="js/refreshBills.js"></script>
+   <script src="js/drawTransactionInline.js"></script>
+   <script src="js/loadHtmlContent.js"></script>
+   <script src="js/createNegativeInputs.js"></script>
+   <script src="js/ignoreTransactionClicked.js"></script>
+   <script src="js/unassign.js"></script>
+   <script src="js/jumpTo.js"></script>
+   <script src="js/deleteFunctions.js"></script>
+   <script src="js/newEntry.js"></script>
+   <script src="js/closeAllLedgerEntries.js"></script>
+   <script src="js/drawInvoiceBillInline.js"></script>
+   <script src="js/newRefund.js"></script>
+
+
+   <script src="js/demoControls.js"></script>
+   <script src="js/bankfeed.js"></script>
+   <script src="js/modalScripts.js"></script>
+   <script src="js/notification.js"></script>
+   <script src="js/mapping.js"></script>
+   <script src="js/cashbookSettings.js"></script>
+   <script src="js/doNotUsePaperwork.js"></script>
+   <script src="js/inOutClicked.js"></script>
+   <script src="js/localStorage.js"></script>
+
+
+
+
+</head>
+<body>
+
+<div class="page_container">
+
+   <!-- MODAL -->
+   <div id="modal-holder" w3-include-html="components\modal.html" style="display:none;"></div>
+
+   <!-- SIDEBAR/MENU -->
+   <div class="sidebar-toolbar" w3-include-html="pages\sidebar-toolbar.html"></div>
+   <div class="sidebar" w3-include-html="pages\sidebar.html"></div>
+
+   <!-- PAGE CONTENT-->
+   <form class="webform" id="affiliate-search-form" autocomplete="off" onsubmit="return false">
+      <button type="submit" style="display: none;"></button>
+      <div class="webform-container form-id-cb ps-0 ps-sm-2 pe-0 pe-sm-2">
+         <div class="webform-subform subform-id-sa100" id="CASHBOOK">
+            <div class="webform-section-copy-boundary">
+               <div class="webform-section" id="mainReturn">
+                  <div class="webform-section" id="mainReturn-0">
+
+
+                     <div id="ledger-holder" class="page container ps-0 pe-0 ps-sm-2 pe-sm-2 pb-2">
+
+                        <div class="page-title-bar p-2 mt-2">
+                           <div class="row gx-3 align-items-end">
+                              <div class="col-auto" style="width:0">
+                                 <img src="./images/ftax-logo-white.svg" alt="Ftax" style="height: 35px;">
+                              </div>
+                              <div class="col text-center">
+                                 <span class="titlebar-caption"></span>
+                              </div>
+                           </div>
+
+
+                        </div>
+
+                        <!-- Sticky header-->
+                        <div id="page-header" class="page-header" w3-include-html="pages\stickyHeader.html"></div>
+
+                        <!-- Transactions-->
+                        <div id="transactions" class="entry-list ledger">
+                           <div id="transactions-list" class="entry-list"></div>
+                        </div>
+
+                        <!-- Bills-->
+                        <div id="bills" class="entry-list ledger">
+                           <div id="bills-list" class="entry-list"></div>
+                        </div>
+
+                        <!-- Invoices-->
+                        <div id="invoices" class="entry-list ledger">
+                           <div id="invoices-list" class="entry-list"></div>
+                        </div>
+
+                     </div>
+
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+
+</div>
+
+<script>drawLedgers();</script>
+
+
+<!--Run the html include-->
+<script>includeHTML();</script>
+
+<!--Finally (must stay last) run bootstrap javascript-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

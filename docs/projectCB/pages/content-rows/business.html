@@ -1,0 +1,297 @@
+<div class="overview-content-row-header row mt-3 gx-0 align-items-center align-items-stretch">
+    <div class="plus-minus col-auto pt-1"></div>
+    <div class="title col-auto p-1 ps-2"> </div>
+    <div class="tick col-auto ms-auto ps-2 pe-2"></div>
+    <div class="row-click-target" onclick="overviewToggleRow('business');"></div>
+</div>
+<div class="overview-content-row-header-arrow row gx-0 justify-content-end expanded-negative">
+    <div class="col-auto content-header-row-left-hand-arrow"></div>
+    <div class="col-auto content-header-row-right-hand-arrow me-5"></div>
+</div>
+
+<div class="overview-content-row-body row gx-0 expanded p-3">
+    <div class="col-12 col-lg-9 me-3">
+
+        <div class="row Xmb-2 gx-1">
+            <div class="field-set">
+                <div class="field-label p-2 mb-1">Business Type</div>
+                <div class="field-wrapper">
+                    <select id="business-type" class="form-control p-2 required missing" data-touched="true" onblur="touch(this);" onchange="businessType=this.value;validateOverview();">
+                        <option value="">Select...</option>
+                        <option value="selfAssessmentSa100">Self Assessment (SA100)</option>
+                        <option value="selfAssessmentItsa">Self Assessment (ITSA)</option>
+<!--                        <option value="XXXselfEmployedSa100">Self-employed (SA100)</option>-->
+<!--                        <option value="XXXselfEmployedItsa">Self-employed (ITSA)</option>-->
+<!--                        <option value="XXXlandlordSa100">Landlord (SA100)</option>-->
+<!--                        <option value="XXXlandlordItsa">Landlord (ITSA)</option>-->
+                        <option value="partnershipSa800">Partnership (SA800)</option>
+                        <option value="companyCt600">Company (CT600)</option>
+<!--                        <option value="XXXvatOnly">VAT Only</option>-->
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUSINESS TYPE NOTES -->
+        <div id="business-type-notes">
+            <!-- SA sa100-->
+            <div class="field-set field-set-blue hideOnBusinessType selfAssessmentSa100">
+                <div class="field-label p-2 mb-1">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p class="small">Individuals/businesses registered for Self Assessment (SA100).</p>
+                            <ul class="small">
+                                <li>Self-employed (SA102)</li>
+                                <li>Landlords (SA105)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SA itsa-->
+            <div class="field-set field-set-blue hideOnBusinessType selfAssessmentItsa">
+                <div class="field-label p-2 mb-1">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p class="small">Individuals/businesses registered for MTD for ITSA.</p>
+                            <ul class="small">
+                                <li>Self-employed (ITSA)</li>
+                                <li>Landlords (ITSA)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- partnership sa800-->
+            <div class="field-set field-set-blue hideOnBusinessType partnershipSa800">
+                <div class="field-label p-2 mb-1">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p class="small">Partnerships registered for Self Assessment (SA800).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- company ct600-->
+            <div class="field-set field-set-blue hideOnBusinessType companyCt600">
+                <div class="field-label p-2 mb-1">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p class="small">Companies registered to complete Company Tax Return (CT600).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row mt-2 mb-2 gx-1">
+            <div class="col">
+                <button id="select-tax-filer" class="btn w-100 btn-primary hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa partnershipSa800 companyCt600" type="button" onclick="selectClientPopup(); selectExistingClient();validateOverview();">SELECT EXISTING CLIENT (TAX FILER)</button>
+            </div>
+        </div>
+        <div class="row mb-2 gx-1 hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa">
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">Title</div>
+                    <div class="field-wrapper">
+                        <input id="taxfiler-title" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">First Name</div>
+                    <div class="field-wrapper">
+                        <input id="taxfiler-firstname" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">Surname</div>
+                    <div class="field-wrapper">
+                        <input id="taxfiler-surname" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2 gx-1 hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa partnershipSa800 companyCt600">
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1 hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa">Business Name <span class="smaller devnote">not in client account</span></div>
+                    <div class="field-label p-2 mb-1 hideOnBusinessType >Property Name <span class="smaller devnote">not in client account</span></div>
+                    <div class="field-label p-2 mb-1 hideOnBusinessType partnershipSa800">Partnership Name</div>
+                    <div class="field-label p-2 mb-1 hideOnBusinessType companyCt600">Company Name</div>
+                    <div class="field-wrapper">
+                        <input id="taxfiler-businessname" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1 hideOnBusinessType selfAssessmentSa100 partnershipSa800 companyCt600">UTR</div>
+                    <div class="field-label p-2 mb-1 hideOnBusinessType selfAssessmentItsa >Nino</div>
+                    <div class="field-label p-2 mb-1 hideOnBusinessType">VAT Registration Number</div>
+                    <div class="field-wrapper">
+                        <input id="taxfiler-utr" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2 gx-1 hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa partnershipSa800 companyCt600">
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1 hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa partnershipSa800">Accounting Method <span class="smaller devnote">not in client account</span></div>
+                    <div class="field-label p-2 mb-1 hideOnBusinessType companyCt600">Accounting Method</div>
+                    <div class="field-wrapper">
+                        <select id="taxfiler-accountingmethod2" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                            <option value="">Select...</option>
+                            <option value="cashbasis">Cash Basis</option>
+                            <option value="accrual">Accrual</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">VAT Registered</div>
+                    <div class="field-wrapper">
+                        <select id="taxfiler-vatregistered" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                            <option value="">Select...</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        <div class="row mb-2 gx-1 hideOnBusinessType">-->
+<!--            <div class="col">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 mb-1">Accounting Method</div>-->
+<!--                    <div class="field-wrapper">-->
+<!--                        <select id="taxfiler-accountingmethod1" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">-->
+<!--                            <option value="">Select...</option>-->
+<!--                            <option value="cashbasis">Cash Basis</option>-->
+<!--                            <option value="accrual">Accrual</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 mb-1">VAT Scheme</div>-->
+<!--                    <div class="field-wrapper">-->
+<!--                        <select id="taxfiler-vatscheme1" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">-->
+<!--                            <option value="">Select...</option>-->
+<!--                            <option value="standard">Standard</option>-->
+<!--                            <option value="flatRate">Flat Rate</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div id="taxfiler-vatflatrate1-wrapper" class="col-auto">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 mb-1">Rate</div>-->
+<!--                    <div class="field-wrapper">-->
+<!--                        <select id="taxfiler-vatflatrate1" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">-->
+<!--                            <option value="">N/A%</option>-->
+<!--                            <option value="4">4%</option>-->
+<!--                            <option value="5">5%</option>-->
+<!--                            <option value="6.5">6.5%</option>-->
+<!--                            <option value="7.5">7.5%</option>-->
+<!--                            <option value="8">8%</option>-->
+<!--                            <option value="8.5">8.5%</option>-->
+<!--                            <option value="9">9%</option>-->
+<!--                            <option value="9.5">9.5%</option>-->
+<!--                            <option value="10">10%</option>-->
+<!--                            <option value="10.5">10.5%</option>-->
+<!--                            <option value="11">11%</option>-->
+<!--                            <option value="12">12%</option>-->
+<!--                            <option value="12.5">12.5%</option>-->
+<!--                            <option value="13">13%</option>-->
+<!--                            <option value="14">14%</option>-->
+<!--                            <option value="14.5">14.5%</option>-->
+<!--                            <option value="15">15%</option>-->
+<!--                            <option value="16.5">16.5%</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="row mb-2 gx-1 hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa partnershipSa800 companyCt600">
+            <div class="col only-if-vat-registered">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">VAT Registration Number</div>
+                    <div class="field-wrapper">
+                        <input id="taxfiler-vrn" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                    </div>
+                </div>
+            </div>
+            <div class="col only-if-vat-registered">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">VAT Scheme</div>
+                    <div class="field-wrapper">
+                        <select id="taxfiler-vatscheme2" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                            <option value="">Select...</option>
+                            <option value="standard">Standard</option>
+                            <option value="flatRate">Flat Rate</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto only-if-vat-registered">
+                <div id="taxfiler-vatflatrate2-wrapper" class="field-set">
+                    <div class="field-label p-2 mb-1">Rate</div>
+                    <div class="field-wrapper">
+                        <select id="taxfiler-vatflatrate2" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                            <option value="">N/A</option>
+                            <option value="4">4%</option>
+                            <option value="5">5%</option>
+                            <option value="6.5">6.5%</option>
+                            <option value="7.5">7.5%</option>
+                            <option value="8">8%</option>
+                            <option value="8.5">8.5%</option>
+                            <option value="9">9%</option>
+                            <option value="9.5">9.5%</option>
+                            <option value="10">10%</option>
+                            <option value="10.5">10.5%</option>
+                            <option value="11">11%</option>
+                            <option value="12">12%</option>
+                            <option value="12.5">12.5%</option>
+                            <option value="13">13%</option>
+                            <option value="14">14%</option>
+                            <option value="14.5">14.5%</option>
+                            <option value="15">15%</option>
+                            <option value="16.5">16.5%</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        <div class="row mb-2 gx-1 hideOnBusinessType selfAssessmentSa100 selfAssessmentItsa partnershipSa800 companyCt600">-->
+<!--            <div class="col">-->
+<!--                <div class="field-set">-->
+<!--                    <div class="field-label p-2 mb-1">Email Address</div>-->
+<!--                    <div class="field-wrapper">-->
+<!--                        <input id="taxfiler-email" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+    </div>
+    <div class="col mt-auto">
+        <p class="small">Select a type and then either select an existing client or enter the required business details. Then click below.</p>
+        <button id="set-period" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="setPeriodClicked();">CONTINUE</button>
+    </div>
+</div>
+<div class="overview-content-row-body-arrow row gx-0 justify-content-end expanded">
+    <div class="col-auto overview-content-row-body-arrow-left"><div class="overview-content-row-body-arrow-left-white"></div></div>
+    <div class="col-auto overview-content-row-body-arrow-right me-5"><div class="overview-content-row-body-arrow-right-white"></div></div>
+</div>

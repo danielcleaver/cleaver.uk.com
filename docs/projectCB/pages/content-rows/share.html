@@ -1,0 +1,97 @@
+<div class="overview-content-row-header row mt-2 gx-0 align-items-center align-items-stretch">
+    <div class="plus-minus col-auto pt-1"></div>
+    <div class="title col-auto p-1 ps-2"> </div>
+    <div class="tick col-auto ms-auto ps-2 pe-2"></div>
+    <div class="row-click-target" onclick="overviewToggleRow('share');"></div>
+</div>
+<div class="overview-content-row-header-arrow row gx-0 justify-content-end expanded-negative">
+    <div class="col-auto content-header-row-left-hand-arrow"></div>
+    <div class="col-auto content-header-row-right-hand-arrow me-5"></div>
+</div>
+
+<div class="overview-content-row-body row gx-0 expanded p-3">
+    <div class="col-12 col-lg-9 me-3">
+
+
+        <div class="field-set">
+            <div class="field-label p-2 mb-1">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p id="share-sharing-label" class="fw-600">Sharing</p>
+                    </div>
+                    <div id="unshare-cashbook" class="col-auto delete-X" onclick="shared=false; shareRequested=false; shareDeclined=false; panel['share']['completed']=false; validateOverview();">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        &lt;!&ndash; SHARE CHECKBOX &ndash;&gt;-->
+<!--        <div id="enable-sharing-wrapper" class="field-set field-set-blue">-->
+<!--            <div class="field-label p-2 mb-1">-->
+<!--                <div class="row align-items-start">-->
+<!--                    <div class="col">-->
+<!--                        <p class="fw-600">Share Cashbook</p>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto">-->
+<!--                        <div class="field-wrapper">-->
+<!--                            <input type="checkbox" id="enable-sharing" checked onblur="touch(this);" onchange="validateOverview();">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; SHARE EMAIL ADDRESS &ndash;&gt;-->
+<!--        <div class="field-set field-set-blue mb-1">-->
+<!--            <div class="share-required">-->
+<!--                <div class="field-wrapper">-->
+<!--                    <input id="share-eml-address" class="form-control p-2 mb-0 text-center required" onblur="touch(this);" onchange="validateOverview();" placeholder="enter email address">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; SHARE NOTES &ndash;&gt;-->
+<!--        <div class="field-set field-set-blue">-->
+<!--            <div class="field-label p-2 mb-1">-->
+<!--                <div class="row align-items-start">-->
+<!--                    <div class="col">-->
+<!--                        <p id="sharing-notes-p1" class="small"></p>-->
+<!--                        <ul class="small">-->
+<!--                            <li>You will still own the cashbook.</li>-->
+<!--                            <li>Cashbook will be shared with your client (you will both have full control).</li>-->
+<!--                            <li>You may stop sharing this cashbook with your client.</li>-->
+<!--                            <li>You will have to pay for a credit if needed.</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; SHARE SEND BUTTON &ndash;&gt;-->
+<!--        <div class="share-required">-->
+<!--            <div class="agent-only">-->
+<!--                <button id="send-share-invitation" class="btn w-100 btn-primary" type="button" onclick="sendShareInvitationClicked();">SEND SHARE INVITATION</button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; SHARE OTHER ACCOUNT &ndash;&gt;-->
+<!--        <div id="accept-share" class="other-account p-2">-->
+<!--            <h2>Invitation recipient</h2>-->
+<!--            <button class="btn w-100 btn-outline-primary mt-3" type="button" onclick="shared=true; shareRequested=false; shareDeclined=false; validateOverview();">Accept Share Invitation</button>-->
+<!--            <button class="btn w-100 btn-outline-primary mt-3" type="button" onclick="shareRequested=false; shareDeclined=true; validateOverview();">Decline Share Invitation</button>-->
+<!--        </div>-->
+
+
+    </div>
+
+    <div class="col mt-auto">
+        <p id="share-action-button-note" class="small">Either share the cashbook, or tick to confirm this is not required.</p>
+        <button id="share-continue" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="shareClicked();">CONTINUE</button>
+    </div>
+</div>
+
+<div class="overview-content-row-body-arrow row gx-0 justify-content-end expanded">
+    <div class="col-auto overview-content-row-body-arrow-left"><div class="overview-content-row-body-arrow-left-white"></div></div>
+    <div class="col-auto overview-content-row-body-arrow-right me-5"><div class="overview-content-row-body-arrow-right-white"></div></div>
+</div>

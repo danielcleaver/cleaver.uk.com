@@ -1,0 +1,76 @@
+<div class="sidebar-inner">
+    <div class="d-flex flex-column flex-fill">
+        <ul class="sidebar-inner-list_group list-group">
+
+
+            <button id="sidebar-change-ledger-transactions" class="btn sidebar-inner-list_item w-100 border-radius-0 mb-2 text-white active text-start ps-4" type="button" onclick="changePage('transactions');">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+               Transactions
+            </button>
+            <button id="sidebar-change-ledger-invoices" class="btn sidebar-inner-list_item w-100 border-radius-0 mb-2 text-white active text-start ps-4 hide-if-do-not-use-paperwork" type="button" onclick="changePage('invoices');">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+               Invoices
+            </button>
+            <button id="sidebar-change-ledger-bills" class="btn sidebar-inner-list_item w-100 border-radius-0 mb-2 text-white active text-start ps-4 hide-if-do-not-use-paperwork" type="button" onclick="changePage('bills');">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+               Bills
+            </button>
+
+
+<!--            <button class="btn sidebar-inner-list_item w-100 border-radius-0 mb-2 text-white text-start ps-4" type="button" onclick="showFilters();">-->
+<!--                Filter Cashbook-->
+<!--            </button>-->
+            <button class="btn sidebar-inner-list_item w-100 border-radius-0 mb-2 text-white text-start ps-4 mt-3" type="button" onclick="showReports();">
+                Generate Reports
+            </button>
+
+            <button class="btn btn-ftax-sidebar-grey w-100 border-radius-0 mb-2 text-start ps-4 mt-3" type="button"  onclick="cashbookSettings();">
+                <i class="fa-solid fa-gears"></i> Settings
+            </button>
+
+<!--            <button class="btn btn-ftax-sidebar-grey w-100 border-radius-0 mb-2 text-start" type="button"  onclick="showRecommendations();">-->
+<!--                Auto-Select-->
+<!--            </button>-->
+<!--            <button class="btn btn-ftax-sidebar-grey w-100 border-radius-0 mb-2 text-start" type="button" style="margins-top: 35px;" onclick="showFlags();">-->
+<!--                Flags-->
+<!--            </button>-->
+        </ul>
+
+
+            <button class="btn btn-outline-secondary w-100 border-radius-0 mt-3" type="button">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z">
+
+                    </path>
+                </svg> Back to Overview
+            </button>
+
+
+        <div class="p-2 mt-4" style="background-color:#000; color:#ff0;">
+            <p class="fw-bold">Demo is currently...</p>
+            <button id="demo_toggle_ignored" onclick="toggleIgnored();" class="btn btn-primary w-100 border-radius-0 mb-2" type="button">Showing 'ignored' items</button>
+
+            <button id="demo_colourblind_friendly" onclick="toggleColourblindFriendly();" class="btn btn-primary w-100 border-radius-0 mb-2" type="button"></button>
+
+            <button id="demo_cashbasis_accrual" onclick="toggleCashbasis();" class="btn btn-primary w-100 border-radius-0 mb-2" type="button"></button>
+
+            <p class="fw-bold">Demo actions</p>
+<!--            <button id="demo_import_bankfeed" onclick="importBankfeedClicked();" class="btn btn-primary w-100 border-radius-0 mb-2" type="button" disabled></button>-->
+            <button id="demo_import_bankfeed2" onclick="importBankfeed2Clicked();refreshPage();" class="btn btn-primary w-100 border-radius-0 mb-2" type="button">Import Bankfeed</button>
+            <button id="" onclick="loadCashbook();refreshPage();" class="btn btn-primary w-100 border-radius-0 mb-2 mt-3" type="button">Load Cashbook</button>
+            <button id="" onclick="saveCashbook();refreshPage();" class="btn btn-primary w-100 border-radius-0 mb-2" type="button">Save Cashbook</button>
+            <button id="" onclick="resetCashbook();refreshPage();" class="btn btn-primary w-100 border-radius-0 mb-2 mt-3" type="button">Load Defaults</button>
+
+
+            <p>Loading Defaults does not also save the cashbook</p>
+
+        </div>
+
+
+
+<!--        </div>-->
+    </div>
+    <div class="sidebar-git-commit-hash">build: 4ee5ce3
+
+    </div>
+</div>

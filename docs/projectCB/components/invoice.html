@@ -1,0 +1,272 @@
+<!--display-->
+<div class="smooth-expandable-inverse-container">
+    <div class="smooth-expandable">
+        <div class="row gx-0 display position-relative">
+            <!--content body-->
+            <div class="col ps-sm-3 pe-sm-3 ps-2 p-1 pt-2 pb-0">
+
+                <!--content row 1 headline figures-->
+                <div class="row row-1 gx-0">
+                    <div class="col-auto show-if-invoice_refund me-2"><i class="fa-solid fa-reply"></i></div>
+                    <div class="col description-label"></div>
+                    <div class="col-auto">
+                        <div class="row gx-0 align-items-end edit-amount-label red-if-outstanding">
+<!--                            <div class="col-auto">-->
+<!--                                <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                            </div>-->
+                            <div class="col-auto">
+                                <input type="text" disabled class="form-control outstanding-amount-display amount-input field-as-text m-0 text-end" onchange="invoiceFieldChanged(this);refreshPage();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--content row 2 non-quick edit links-->
+                <div class="row row-2 smaller gx-0">
+                    <div class="col display-summary"></div>
+                    <div class="col-auto display-amount-label"></div>
+
+                </div>
+
+
+            </div>
+
+
+            <!--content flag-->
+            <div class="col-auto d-flex align-items-stretch">
+                <div class="flag-bar"></div>
+            </div>
+
+            <!--content click-target-->
+            <div class="row-click-target-toplevel text-center" onclick="openEntry(this)"><i class="fa-solid fa-angle-down"></i></div>
+
+        </div>
+    </div>
+</div>
+
+<!--edit-->
+<div class="smooth-expandable-container">
+    <div class="smooth-expandable">
+        <div class="display-inverse ps-sm-1 pe-sm-1 edit-panel">
+            <!-- edit row 1 item type and guid-->
+            <div class="row smaller gx-0 ps-1 ps-sm-0 pe-1 pe-sm-0 justify-content-between quiet-link" href="#0" onclick="copyContentToClipboard(this);">
+                <div class="col-auto">
+                    <div class="show-if-invoice">invoice:</div>
+                    <div class="show-if-invoice_refund">invoice refund:</div>
+                </div>
+                <div class="col-auto smallest">
+                    <span class="id"></span>
+                </div>
+            </div>
+
+            <!--edit body entry-core-->
+            <div class="entry-core pt-1 pb-2 p-1">
+                <div class="ms-sm-1 ms-1 me-sm-1 me-1">
+
+                    <!--edit body entry-core content row 1-->
+                    <div class="row gx-2">
+                        <div class="col-auto mb-1">
+                            <div class="top-label ms-1 show-if-invoice">invoice date</div>
+                            <div class="top-label ms-1 show-if-invoice_refund">refund date</div>
+                            <input type="date" class="form-control primary-date m-0 width-8-char" onblur="invoiceFieldChanged(this);refreshPage();">
+                        </div>
+                        <div class="col min-width-10 mb-1">
+                            <div class="top-label ms-1">customer information</div>
+                            <input type="text" class="form-control description m-0" onchange="invoiceFieldChanged(this);refreshPage();" placeholder="Name of customer...">
+                        </div>
+                        <div class="col-auto mb-1 ms-auto d-flex align-items-end">
+                            <div class="edit-amount-label-wrapper show-if-paid-in-full ">
+                                <div class="row gx-0 align-items-end">
+                                    <div class="col-auto">
+                                        <input type="text" class="edit-amount-label width-8-5-char form-control m-0 text-center show-if-invoice" disabled value="Paid in Full">
+                                        <input type="text" class="edit-amount-label width-8-5-char form-control m-0 text-center show-if-invoice_refund" disabled value="Refunded in Full">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit-amount-label-wrapper show-if-paid-in-full-inverse">
+                                <div class="show-if-null-amount-inverse">
+                                    <div class="top-label ms-1 me-1 pe-1 text-end outstanding-label">outstanding</div>
+                                    <div class="row gx-0 align-items-end edit-amount-label">
+<!--                                        <div class="col-auto">-->
+<!--                                            <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                                        </div>-->
+                                        <div class="col-auto">
+                                            <input type="text" disabled class="form-control outstanding-amount amount-input m-0 text-end" onchange="invoiceFieldChanged(this);refreshPage();">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--edit body entry-core content row 1-->
+                    <div class="row gx-2">
+                        <div class="col-auto mb-1 show-if-invoice">
+                            <div class="top-label ms-1">due date</div>
+                            <input type="date" class="form-control due-date m-0 width-8-char" onblur="invoiceFieldChanged(this);refreshPage();">
+                        </div>
+                        <div class="col min-width-10 mb-1">
+                            <div class="top-label ms-1 show-if-invoice">invoice number/reference</div>
+                            <div class="top-label ms-1 show-if-invoice_refund">reference</div>
+                            <input type="text" class="form-control invoice-id m-0" onchange="invoiceFieldChanged(this);refreshPage();" placeholder="Reference number...">
+                        </div>
+                        <div class="col-auto mb-1 ms-auto d-flex align-items-end">
+                            <div class="row gx-0 align-items-end hide-if-totals-are-hidden">
+<!--                                <div class="col-auto">-->
+<!--                                    <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                                </div>-->
+                                <div class="col-auto">
+                                    <div class="top-label me-1 text-end">total (ex. VAT)</div>
+                                    <input type="text" disabled class="form-control amount-excl-vat amount-input m-0 text-end" onchange="transactionFieldChanged(this);refreshPage();">
+                                </div>
+                            </div>
+                            <div class="row gx-0 align-items-end hide-if-totals-are-hidden">
+<!--                                <div class="col-auto">-->
+<!--                                    <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                                </div>-->
+                                <div class="col-auto">
+                                    <div class="top-label me-1 text-end">total (inc. VAT)</div>
+                                    <input type="text" disabled class="form-control amount-incl-vat amount-input m-0 text-end" onchange="transactionFieldChanged(this);refreshPage();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--lineitems display well-->
+                    <div class="row lineitems-well-outer mt-1">
+                        <div class="smaller ms-1">items</div>
+                        <div class="lineitems-well Xps-2 Xpe-2"></div>
+                        <div class="mt-2">
+                            <a href="#0" class="smaller link" onclick="addLineItem(this);refreshPage();">ADD ITEM</a>
+                        </div>
+                    </div>
+
+                    <!--edit body entry-core content row 3-->
+                    <div class="row gx-1 mt-2 mb-2">
+<!--                        <div class="col-auto">-->
+<!--                            <a href="#0" class="smaller link" onclick="addLineItem(this);refreshPage();">ADD ITEM</a>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto ms-2 ms-auto">-->
+<!--                            <button id="add-entry" class="btn btn-primary btn-smaller Xbtn-sm" type="button" onclick="pseudoSaveEntry(this);">-->
+<!--                                Save-->
+<!--                            </button>-->
+<!--                        </div>-->
+                    </div>
+
+
+                </div>
+                <img class="page-corner" src="./images/page-corner.png" alt="corner">
+            </div>
+
+
+            <!-- tier2 -->
+            <div class="smooth-expandable-container2">
+                <div class="smooth-expandable2">
+
+                    <!--transaction display well-->
+                    <div class="transaction-well-outer mt-1">
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto">
+                                <div class="smaller assigned-transaction-title"></div>
+                            </div>
+                        </div>
+
+                        <div class="transaction-well-inner">
+                            <div class="transactions-well xms-sm-2 xms-1 xme-sm-2 xme-1"></div>
+                        </div>
+
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto ms-auto">
+                                <a href="#0" class="smaller link" onclick="assignInvoice(this);refreshPage();">ASSIGN TRANSACTION</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--refund items display well-->
+                    <div class="refund-items-well-outer show-if-has-refund-item">
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto">
+                                <div class="smaller refund-item-title"></div>
+                            </div>
+                        </div>
+                        <div class="refund-items-well-inner">
+                            <div class="refund-items-well xms-sm-2 xms-1 xme-sm-2 xme-1"></div>
+                        </div>
+                    </div>
+
+                    <div class="row gx-0 ms-1 me-1 mb-2 show-if-invoice">
+                        <div class="col-auto">
+                            <a href="#0" class="smaller link" onclick="newRefund(this);refreshPage();">ADD REFUND</a>
+                        </div>
+                    </div>
+
+
+                    <!--note-->
+                    <div class="note-well Xmt-1">
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto">
+                                <div class="smaller">note:</div>
+                            </div>
+                        </div>
+                        <div class="note-well-inner">
+                            <div class="row gx-0">
+                                <div class="col">
+
+                                    <input type="text" class="form-control note-field ps-sm-4 ps-3 pe-sm-4 pe-3" placeholder="Add a note..." onchange="invoiceFieldChanged(this); refreshPage();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--submission display well-->
+                    <div class="submission-well-outer show-if-included-within-tax-return mt-1">
+
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto">
+                                <div class="smaller">included within submission:</div>
+                            </div>
+                        </div>
+
+
+                        <div class="submission-well-inner pt-1 pb-1 p-3">
+                            <div class="submission-well ms-2 me-2 pt-2"></div>
+                        </div>
+
+
+                        <div class="row gx-0 bottom-bar-arrow-box">
+                            <div class="col bottom-bar-arrow-box-left"></div>
+                            <div class="col bottom-bar-arrow-box-right"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--collapse-->
+            <div class="row gx-1 align-items-end m-t mt-2 mb-2 justify-content-end">
+                <div class="col-auto text-start smaller me-auto">
+                    <div class="show-if-open2">
+                        <a href="#0" class="smaller link show-if-invoice" onclick="deleteInvoice(this);">DELETE INVOICE</a>
+                        <a href="#0" class="smaller link show-if-invoice_refund" onclick="deleteInvoice(this);">DELETE INVOICE REFUND</a>
+                    </div>
+                    <a href="#0" class="smaller link hide-if-open2" onclick="open2Entry(this);">show more</a>
+                </div>
+                <div class="col-auto text-center smaller closer">
+                    <button class="btn btn-outline-primary btn-smaller Xbtn-sm" type="button" onclick="openEntry(this)">
+                        Cancel
+                    </button>
+                </div>
+                <div class="col-auto text-end smaller">
+                    <button class="btn btn-primary btn-smaller Xbtn-sm" type="button" onclick="pseudoSaveEntry(this);">
+                        Save
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

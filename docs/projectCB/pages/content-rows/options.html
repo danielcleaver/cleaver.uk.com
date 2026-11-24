@@ -1,0 +1,275 @@
+<div class="overview-content-row-header row mt-2 gx-0 align-items-center align-items-stretch">
+    <div class="plus-minus col-auto pt-1"></div>
+    <div class="title col-auto p-1 ps-2"> </div>
+    <div class="tick col-auto ms-auto ps-2 pe-2"></div>
+    <div class="row-click-target" onclick="overviewToggleRow('options');"></div>
+</div>
+<div class="overview-content-row-header-arrow row gx-0 justify-content-end expanded-negative">
+    <div class="col-auto content-header-row-left-hand-arrow"></div>
+    <div class="col-auto content-header-row-right-hand-arrow me-5"></div>
+</div>
+
+<div class="overview-content-row-body row gx-0 expanded p-3">
+    <div class="col-12 col-lg-9 me-3">
+
+        <div class="field-set mb-1">
+            <div class="field-label p-2">
+                <p id="options-ownership-title" class="fw-600">Ownership</p>
+            </div>
+        </div>
+
+        <!-- UNSHARE BUTTON -->
+        <button id="unshare-cashbook" class="btn w-100 btn-outline-primary" type="button" onclick="unshareClicked(); validateOverview();">STOP SHARING</button>
+
+        <p class="small agent-only mt-0 mb-2 fw-600">NOTE: ONLY THE CURRENT OWNER CAN PURCHASE AND ASSIGN A CREDIT</p>
+
+
+
+
+
+        <!-- ============================= TRANSFER -->
+        <div class="agent-only">
+
+            <!-- TRANSFER CHECKBOX -->
+            <div id="enable-transfer-wrapper" class="field-set field-set-grey">
+                <div class="field-label p-2 mb-1">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p class="fw-600">Transfer cashbook to client Ftax Account and share</p>
+                        </div>
+                        <div class="col-auto">
+                            <div class="field-wrapper">
+                                <input type="checkbox" id="enable-transfer" onblur="touch(this);" onchange="mutuallyExclusive(['enable-transfer','enable-sharing','enable-nothing']);validateOverview();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANSFER NOTES -->
+            <div id="transfer-required-notes" class="field-set field-set-blue Xif-owned">
+                <div class="field-label p-2 Xtransfer-required">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <p class="small">Cashbook ownership can be transferred to your client's Ftax account.<br/>They will be invited to accept by email and will be prompted to create an Ftax account if needed.</p>
+                            <ul class="small">
+                                <li class="fw-600">This transfer cannot be reversed.</li>
+                                <li>The cashbook will be shared so that both you and your client can use it.</li>
+                                <li>The client may unshare whenever they wish.</li>
+                                <li>When a credit is required, only the client can make the purchase.</li>
+                            </ul>
+                            <p class="small">To start a transfer, click below to send an invitation email with full instructions.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-set field-set-blue if-owned">
+                <div class="transfer-required">
+                    <div class="field-wrapper agent-only">
+                        <div id="transfer-controls" class="mb-3 p-2 pt-0 blue">
+                            <!-- TRANSFER SEND BUTTON -->
+                            <button id="send-transfer-invitation" class="btn w-100 btn-primary mb-2" type="button" onclick="sendTransferInvitationClicked();">SEND TRANSFER INVITATION</button>
+                            <!-- TRANSFER EMAIL ADDRESS -->
+                            <input id="transfer-eml-address" class="form-control p-2 text-center m-0 Xrequired" onblur="touch(this);" onchange="validateOverview();" placeholder="enter email address">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANSFER OTHER ACCOUNT -->
+            <div id="accept-transfer" class="other-account p-2">
+                <h2>Invitation recipient</h2>
+                <button class="btn w-100 btn-primary mt-3" type="button" onclick="owned=false;transferred=true; transferRequested=false; transferDeclined=false; shared=true; validateOverview();">Accept Transfer Invitation</button>
+                <button class="btn w-100 btn-outline-primary mt-3" type="button" onclick="transferRequested=false; transferDeclined=true; validateOverview();">Decline Transfer Invitation</button>
+            </div>
+
+        </div>
+
+        <!-- ============================= SHARE -->
+
+        <!-- SHARE CHECKBOX -->
+        <div id="enable-sharing-wrapper" class="field-set field-set-grey">
+            <div class="field-label p-2 mb-1">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p class="fw-600 agent-only">Share cashbook with client Ftax Account</p>
+                        <p class="fw-600 non-agent-only">Share cashbook with Agent Ftax Account</p>
+                    </div>
+                    <div class="col-auto">
+                        <div class="field-wrapper">
+                            <input type="checkbox" id="enable-sharing" onblur="touch(this);" onchange="mutuallyExclusive(['enable-sharing','enable-transfer','enable-nothing']);validateOverview();">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHARE NOTES -->
+        <div id="share-required-notes" class="field-set field-set-blue">
+            <div class="field-label p-2 Xshare-required">
+                <div class="row align-items-start">
+                    <div class="col non-agent-only">
+                        <p class="small">The cashbook can be shared so that both you and your agent may use it.<br/>They will be invited to accept by email and will be prompted to create an Ftax account if needed.</p>
+                        <ul class="small">
+                            <li class="fw-600">You will still own the cashbook.</li>
+                            <li>You or your agent may stop sharing whenever you wish.</li>
+                            <li>If sharing is stopped, your agent will no longer have access.</li>
+                            <li>When a credit is required only you can make the purchase.</li>
+                        </ul>
+                        <p class="small">To start sharing, click below to send an invitation email with full instructions.</p>
+                    </div>
+                    <div class="col agent-only">
+                        <p class="small">The cashbook can be shared so that both you and your client may use it.<br/>They will be invited to accept by email and will be prompted to create an Ftax account if needed.</p>
+                        <ul class="small">
+                            <li class="fw-600">You will still own the cashbook.</li>
+                            <li>You or your client may stop sharing whenever you wish.</li>
+                            <li>If sharing is stopped, your client will no longer have access.</li>
+                            <li>When a credit is required only you can make the purchase.</li>
+                        </ul>
+                        <p class="small">To start sharing, click below to send an invitation email with full instructions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field-set field-set-blue if-not-shared">
+            <div class="share-required">
+                <div class="field-wrapper">
+                    <div id="share-controls" class="mb-3 p-2 pt-0 blue">
+                        <!-- SHARE SEND BUTTON -->
+                        <button id="send-share-invitation" class="btn w-100 btn-primary mb-2" type="button" onclick="sendShareInvitationClicked();">SEND SHARE INVITATION</button>
+                        <!-- SHARE EMAIL ADDRESS -->
+                        <input id="share-eml-address" class="form-control p-2 text-center m-0 Xrequired" onblur="touch(this);" onchange="validateOverview();" placeholder="enter email address">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHARE OTHER ACCOUNT -->
+        <div id="accept-share" class="other-account p-2">
+            <h2>Invitation recipient</h2>
+            <button class="btn w-100 btn-primary mt-3" type="button" onclick="shared=true; shareRequested=false; shareDeclined=false; validateOverview();">Accept Share Invitation</button>
+            <button class="btn w-100 btn-outline-primary mt-3" type="button" onclick="shareRequested=false; shareDeclined=true; validateOverview();">Decline Share Invitation</button>
+        </div>
+
+        <!-- NOSHARE CHECKBOX -->
+        <div id="enable-noshare-wrapper" class="field-set field-set-grey">
+            <div class="field-label p-2 mb-1">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p class="fw-600">Run cashbook from this Ftax Account only</p>
+                    </div>
+                    <div class="col-auto">
+                        <div class="field-wrapper">
+                            <input type="checkbox" id="enable-nothing" checked onblur="touch(this);" onchange="mutuallyExclusive(['enable-nothing','enable-sharing','enable-transfer']);validateOverview();">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOSHARE NOTES -->
+        <div id="transfer-share-not-required-notes" class="field-set field-set-blue if-not-shared">
+            <div class="field-label p-2 mb-1">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p class="small non-agent-only">The cashbook will only operate in this Ftax Account.<br/>It may be shared with your agent at any time.</p>
+                        <p class="small agent-only">The cashbook will only operate in this Ftax Account.<br/>It may be transferred to, or shared with your client at any time.</p>
+                        <ul class="small">
+                            <li class="fw-600">You will still own the cashbook.</li>
+                            <li>When a credit is required only you can make the purchase.</li>
+                        </ul>
+                        <p class="small non-agent-only">Select an option above to see details of how to share this cashbook.</p>
+                        <p class="small agent-only">Select an option above to see details of how to transfer ownership of, or share this cashbook.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+<!--        &lt;!&ndash;        BANK FEED ////////////////////////////&ndash;&gt;-->
+
+<!--        <div class="field-set mb-1 mt-3">-->
+<!--            <div class="field-label p-2">-->
+<!--                <p class="fw-600">BANK FEED</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="field-set ">-->
+<!--            <div class="mb-1">-->
+<!--                <div class="row gx-0 align-items-start align-items-stretch">-->
+<!--                    <div class="col p-2 grey me-1">-->
+<!--                        <p class="fw-600">Enable Bank Feeds (will require a credit)</p>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto grey p-2 me-1">-->
+<!--                        <div class="row align-items-stretdch">-->
+<!--                            <div class="col">-->
+<!--                                <div class="row justify-content-between">-->
+<!--                                    <div class="col-auto">-->
+<!--                                        Yes-->
+<!--                                    </div>-->
+<!--                                    <div class="col-auto">-->
+<!--                                        <input type="checkbox" id="bankfeed-required" onblur="touch(this);" onchange="mutuallyExclusive(['bankfeed-required','bankfeed-not-required']);bankfeedRequiredChanged(this);validateOverview();">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto grey p-2">-->
+<!--                        <div class="row align-items-stretdch">-->
+<!--                            <div class="col">-->
+<!--                                <div class="row justify-content-between">-->
+<!--                                    <div class="col-auto">-->
+<!--                                        No-->
+<!--                                    </div>-->
+<!--                                    <div class="col-auto">-->
+<!--                                        <input type="checkbox" id="bankfeed-not-required" onblur="touch(this);" onchange="mutuallyExclusive(['bankfeed-not-required','bankfeed-required']);bankfeedRequiredChanged(this);validateOverview();">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; BANK FEED NOTES &ndash;&gt;-->
+<!--        <div id="bankfeed-notes" class="field-set field-set-blue">-->
+<!--            <div class="field-label p-2 mb-1">-->
+<!--                <div class="row align-items-start">-->
+<!--                    <div class="col">-->
+<!--                        <p class="small">You will be able to setup your bank feeds in the Bank Feed panel below, once the cashbook is created and credited.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+    </div>
+    <div class="col mt-auto">
+        <p id="newly-created-label" class="small" style="display:none;">A cashbook has now been created in this Ftax Account.</p>
+
+        <div class="if-owned">
+            <p class="small agent-only">There are 3 transfer/share options which can be changed now or returned to and changed at any time.</p>
+            <p class="small non-agent-only">There are 2 share options which can be changed now or returned to and changed at any time.</p>
+            <p class="small">Further information will display when each option is selected to help you decide.</p>
+<!--            <p class="small">Select whether a bank feed will be used or not and click to continue when you are ready</p>-->
+        </div>
+
+        <div class="if-not-owned">
+            <p class="small">This cashbook is being shared with you by the owner.</p>
+            <p class="small">If you stop sharing this cashbook, you will lose access to it.</p>
+<!--            <p class="small">Select whether a bank feed will be used or not and click to continue when you are ready</p>-->
+        </div>
+
+        <button id="options-continue" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="optionsClicked();">CONTINUE</button>
+    </div>
+</div>
+<div class="overview-content-row-body-arrow row gx-0 justify-content-end expanded">
+    <div class="col-auto overview-content-row-body-arrow-left"><div class="overview-content-row-body-arrow-left-white"></div></div>
+    <div class="col-auto overview-content-row-body-arrow-right me-5"><div class="overview-content-row-body-arrow-right-white"></div></div>
+</div>

@@ -1,0 +1,88 @@
+<!-- Title stripe-->
+<div class="row gx-2 mt-1 mb-0 ms-2 ms-sm-0 me-3 me-sm-0">
+    <div class="col p-0 Xms-0 Xms-sm-3" id="page-title" >
+        <div id="ledger-title" class="page-title"></div>
+    </div>
+    <div class="col-auto p-0 me-0 me-sm-4">
+        <button id="add-entry" class="btn btn-outline-secondary btn-smaller Xbtn-sm" type="button" onclick="newEntry();refreshPage();">
+            New
+        </button>
+    </div>
+</div>
+
+<!-- Menu stripe-->
+<div class="me-2 me-sm-4 mt-1 mb-2 ms-2 ms-sm-0 me-2 me-sm-0">
+    <div class="row gx-2 align-items-end">
+        <div class="col-auto">
+
+            <button id="in-button" href="" class="btn btn-outline-secondary btn-smaller btn-sm width-4-char p-0" type="button" onclick="inClicked();refreshPage();">
+                <div class="row gx-0 justify-content-center">
+                    <div class="col p-0">
+                        In
+                    </div>
+<!--                    <div class="col-auto p-0 me-1">-->
+<!--                        <i class="fa-solid fa-xmark show-if-in-only"></i>-->
+<!--                    </div>-->
+                </div>
+            </button>
+
+        </div>
+        <div class="col-auto">
+
+            <button id="out-button" class="btn btn-outline-secondary btn-smaller btn-sm width-4-char p-0" type="button" onclick="outClicked();refreshPage();">
+                <div class="row gx-0 justify-content-center">
+                    <div class="col p-0">
+                        Out
+                    </div>
+<!--                    <div class="col-auto p-0 me-1">-->
+<!--                        <i class="fa-solid fa-xmark show-if-out-only"></i>-->
+<!--                    </div>-->
+                </div>
+            </button>
+
+
+
+<!--            <button id="out-button" class="btn btn-outline-primary btn-smaller btn-sm width-4-5-char p-0" type="button" onclick="outClicked();refreshPage();">-->
+<!--                Out <i class="fa-solid fa-xmark show-if-out-only"></i>-->
+<!--            </button>-->
+        </div>
+        <div class="col-auto">
+            <div id="ledger-subtitle" class="page-subtitle"></div>
+        </div>
+    </div>
+    <div id="page-header-menu-stripe" class="row gx-0 align-items-center justify-content-end">
+        <!-- transactions button-->
+        <div class="col-auto p-0 mt-1">
+            <button id="change-ledger-transactions" type="button" class="ms-2 btn btn-outline-secondary btn-smaller" onclick="changePage('transactions');">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Transactions
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+        </div>
+
+        <!-- bills button-->
+        <div class="col-auto p-0 mt-1">
+            <button id="change-ledger-bills" type="button" class="ms-2 btn btn-outline-secondary btn-smaller hide-if-do-not-use-paperwork" onclick="changePage('bills');">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Bills
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+        </div>
+
+        <!-- invoices button-->
+        <div class="col-auto p-0 mt-1">
+            <button id="change-ledger-invoices" type="button" class="ms-2 btn btn-outline-secondary btn-smaller hide-if-do-not-use-paperwork" onclick="changePage('invoices');">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Invoices
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Summary bar stripe-->
+<div id="summary-bar" class="Xmt-2"></div>
+
+<div id="notification" class="fadeable mt-1 ps-3 pe-3 p-1 me-2">Notifications go here.</div>

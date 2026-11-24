@@ -1,0 +1,92 @@
+<div id="select-menu-inner" class="mt-2 p-2">
+    <p class="small">Tick boxes next to entries to select them, then...</p>
+    <div class="row d-flex justify-content-between align-items-end">
+        <div class="col-auto">
+            <button id="apply-recommendation-selection" class="btn btn-outline-primary btn-sm btn-recommended" type="button"  onclick="alert('Apply recommended actions to selected entries');">
+                <i class="fa-solid fa-robot"></i> Apply Recommendations
+            </button>
+        </div>
+        <div class="col-auto">
+            <p id="show-more-selection-actions" class="m-0 small text-end more-selection-actions-item-negative" style="display:block;" onclick="showMoreSelectionActions();">more...</p>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div id="more-selection-actions" class="more-selection-actions-item mt-3" style="display:none;">
+
+        <div class="row mt-1 gx-1">
+            <div class="col-auto">
+                <button id="confirm-selection" class="btn btn-outline-primary btn-sm input-7" type="button"  onclick="alert('Confirm selected entries');">
+                    <i class="fa-solid fa-check"></i> Confirm
+                </button>
+            </div>
+            <div class="col-auto">
+                <button id="unconfirm-selection" class="btn btn-outline-primary btn-sm input-7" type="button"  onclick="alert('Unconfirm selected entries');">
+                    <i class="fa-solid fa-ban"></i> Unconfirm
+                </button>
+            </div>
+        </div>
+        <div class="row mt-1 gx-1">
+            <div class="col-auto">
+                <button id="ignore-selection" class="btn btn-outline-primary btn-sm input-7" type="button"  onclick="alert('Ignore selected entries');">
+                    <i class="fa-solid fa-eye-slash"></i> Ignore
+                </button>
+            </div>
+            <div class="col-auto">
+                <button id="unignore-selection" class="btn btn-outline-primary btn-sm input-7" type="button"  onclick="alert('Unignore selected entries');">
+                    <i class="fa-solid fa-eye"></i> Unignore
+                </button>
+            </div>
+        </div>
+        <div class="row mt-1 gx-1">
+            <div class="col-auto">
+                <button id="flag-selection" class="btn btn-outline-primary btn-sm input-7" type="button"  onclick="alert('Flag selected entries popup to select which flag');">
+                    <i class="fa-solid fa-flag"></i> Flag
+                </button>
+            </div>
+            <div class="col-auto">
+                <button id="unflag-selection" class="btn btn-outline-primary btn-sm input-7" type="button"  onclick="alert('Unflag selected entries');">
+                    <i class="fa-regular fa-flag"></i> Unflag
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <p id="show-less-selection-actions" class="m-0 small text-end more-selection-actions-item" style="display:none;" onclick="hideMoreSelectionActions();">less...</p>
+
+<!--    <p class="small">Actions will apply to all selected items:</p>-->
+<!--    <div class="row gx-1 mb-1">-->
+<!--        <div class="col-auto">-->
+<!--            <button id="confirm-selection" class="btn btn-outline-primary btn-sm" type="button"  onclick="alert('Confirm selected entries');">-->
+<!--                <i class="fa-solid fa-check"></i> Confirm-->
+<!--            </button>-->
+<!--        </div>-->
+<!--        <div class="col-auto">-->
+<!--            <button id="unconfirm-selection" class="btn btn-outline-primary btn-sm" type="button"  onclick="alert('Unconfirm selected entries');">-->
+<!--                <div class="banned-icon"><i class="fa-solid fa-check"></i><i class="fa-solid fa-ban"></i></div> Unconfirm-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row gx-1">-->
+<!--        <div class="col-auto">-->
+<!--            <button id="ignore-selection" class="btn btn-outline-primary btn-sm" type="button"  onclick="alert('Ignore selected entries');">-->
+<!--                <i class="fa-solid fa-eye-slash"></i> Ignore-->
+<!--            </button>-->
+<!--        </div>-->
+<!--        <div class="col-auto">-->
+<!--            <button id="unignore-selection" class="btn btn-outline-primary btn-sm" type="button"  onclick="alert('unignore selected entries');">-->
+<!--                <div class="banned-icon"><i class="fa-solid fa-eye-slash"></i><i class="fa-solid fa-ban"></i></div> Unignore-->
+<!--            </button>-->
+<!--        </div>-->
+<!--        <div class="col-auto ms-auto">-->
+<!--            <button id="delete-selection" class="btn btn-primary btn-sm" type="button"  onclick="alert('Delete selected entries');">-->
+<!--                <i class="fa-solid fa-xmark"></i> Delete-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+

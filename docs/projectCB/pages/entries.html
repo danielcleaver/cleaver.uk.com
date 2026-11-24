@@ -1,0 +1,63 @@
+<!--<link rel="stylesheet" href="../webform.css">-->
+<div id="Entry_List" class="page container ps-0 pe-0 ps-sm-2 pe-sm-2 Xpt-3 Xpt-md-4 pb-2">
+
+   <div class="page-title-bar p-2 mt-2">
+      <img src="./images/ftax-logo-white.svg" alt="Ftax" style="height: 35px;">
+   </div>
+
+
+   <!-- Sticky header-->
+   <div class="page-header">
+
+      <!-- Title stripe-->
+      <div class="row gx-2 mb-0 ms-2 ms-sm-0 me-2 me-sm-0">
+         <div class="col p-0" id="page-title" >
+            <h2 class="mb-0">Dan's Deli Supplies</h2>
+         </div>
+         <div class="col-auto p-0">
+            <button id="add-entry" class="btn btn-primary btn-smaller btn-sm" type="button" onclick="setupEntries();alert('Manually add an entry\nModal dialogue with fields and defaulted to entry type that matches current list, (eg transaction) but is changeable (eg invoice).');">
+               New
+            </button>
+         </div>
+      </div>
+
+      <!-- Menu stripe-->
+      <div id="page-header-menu-stripe" class="row gx-2 mt-2 mb-0 ms-2 ms-sm-0 me-2 me-sm-0 align-items-center"></div>
+
+      <!-- Summary bar stripe-->
+      <div id="summary-bar" class="mt-2"></div>
+
+<!--      <div id="summary-bar" class="mt-1">-->
+
+<!--         <div id="incomplete-unconfirmed" class="text-center ps-2 pe-2 pt-2 pb-2" onclick="alert('show filtered list:\nOnly show incomplete and unconfirmed entries')">-->
+<!--            Incomplete and/or unconfirmed information<i class="fa-solid fa-exclamation input-1-5 text-center"></i>-->
+<!--         </div>-->
+
+<!--&lt;!&ndash;         <div id="complete" class="text-end ps-2 ps-sm-0 pe-2 pe-sm-0" >&ndash;&gt;-->
+<!--&lt;!&ndash;            All information complete and confirmed<i class="fa-solid fa-check input-1-5 text-center"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;         </div>&ndash;&gt;-->
+<!--         <div id="apply-recommendations-bar" class="text-end ps-2 pe-2 pt-2 pb-2">-->
+<!--            <div class="row gx-0">-->
+<!--               <div class="col me-2">-->
+<!--                  Check Ftax recommendations below, click to edit, or tick to confirm/ignore, then-->
+<!--                  <i class="fa-solid fa-arrow-right-long"></i>-->
+<!--               </div>-->
+<!--               <div class="col-auto d-flex align-items-center">-->
+<!--                  <button id="apply-recommendations" class="btn btn-outline-primary btn-sm btn-smaller" type="button" onclick="alert('Apply recommended actions to ticked entries')">-->
+<!--                  Apply-->
+<!--                  </button>-->
+<!--               </div>-->
+<!--            </div>-->
+
+<!--         </div>-->
+
+<!--      </div>-->
+
+   </div>
+
+   <!-- Entry List-->
+   <div id="entry-list" class="entry-list"></div>
+
+
+</div>
+

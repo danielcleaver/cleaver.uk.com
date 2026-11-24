@@ -1,0 +1,349 @@
+.page_container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100%;
+}
+@media (min-width: 992px) {
+    .page_container {
+        flex-wrap: nowrap;
+    }
+}
+
+
+@media (min-width: 992px) {
+    #change-ledger-transactions,
+    #change-ledger-bills,
+    #change-ledger-invoices{
+        display: none !important;
+    }
+}
+
+
+
+.sidebar-toolbar,
+.overview-sidebar-toolbar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 55px;
+    color: #fff;
+    background-color: #004954;
+}
+
+@media (min-width: 992px) {
+    .sidebar-toolbar,
+    .overview-sidebar-toolbar{
+        display: none;
+    }
+}
+
+.page-title-bar{
+    display:none;
+    background-color: rgba(0,73,84,1);	/*ftax teal*/
+    height:55px;
+}
+
+.page-title-bar h1{
+    color: rgba(255,255,255,1);
+}
+
+@media (min-width: 992px) {
+    .page-title-bar{
+        display: block;
+    }
+}
+
+
+
+
+.fake-link{
+    color:rgba(255,255,255,0.6);
+}
+
+.sidebar {
+    position: fixed;
+    inset: 55px 0 0 0;
+    z-index: 998;
+    display: none;
+    flex-shrink: 0;
+    width: 0;
+    background-color: #fff;
+    min-height: 550px;
+}
+
+.overview-sidebar {
+    position: fixed;
+    inset: 55px 0 0 0;
+    z-index: 998;
+    display: none;
+    flex-shrink: 0;
+    width: 0;
+    background-color: rgba(0,73,84,1);	/*ftax teal*/
+    /*min-height: 550px;*/
+}
+
+
+
+@media screen and (min-width: 992px) {
+    .sidebar {
+        position: initial;
+        top: initial;
+        right: initial;
+        bottom: initial;
+        left: initial;
+    }
+    .overview-sidebar {
+        position: initial;
+        top: initial;
+        right: initial;
+        bottom: initial;
+        left: initial;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .sidebar {
+        display: block !important;
+        width: 100%;
+    }
+    .sidebar.show {
+        width: 25vw !important;
+    }
+    .overview-sidebar {
+        display: block !important;
+        width: 100%;
+    }
+    .overview-sidebar.show {
+        width: 100%; !important;
+    }
+}
+
+@media screen and (min-width: 992px) and (min-width: 992px) {
+    .sidebar {
+        width: 25vw;
+    }
+    .overview-sidebar {
+        width: 100%;
+    }
+}
+
+
+.sidebar.show {
+    display: block;
+    width: 100%;
+}
+
+.overview-sidebar.show {
+    display: block;
+    width: 100%;
+}
+
+
+.webform-container {
+    padding: 5px;
+}
+
+.webform .page {
+    margin-bottom: 45px;
+    color: #000;
+    background-color: #fff;
+    background-image: url(https://static-ftax.s3.eu-west-2.amazonaws.com/webforms/squares6.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.25);
+    margin-top:0;
+}
+
+.btn-check:focus + .btn, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(18, 144, 181, 0.25);
+}
+
+
+.sidebar-inner {
+    scrollbar-face-color: #adb5bd;
+    scrollbar-track-color: #f8f9fa;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+@media (min-width: 992px) {
+    .sidebar-inner {
+        position: fixed;
+        inset: 0 0 -25vw;
+        width: 25vw;
+    }
+}
+
+@media (min-width: 992px) {
+    .sidebar-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+    }
+}
+
+@media (min-width: 992px) {
+    @media (min-width: 992px) {
+        .sidebar-inner {
+            position: fixed;
+        }
+    }
+}
+
+.sidebar-inner-list_group {
+    border: 0;
+    border-radius: 0;
+}
+
+
+.sidebar-inner-list_item.active {
+    background-color: #004954 !important;
+}
+
+
+.sidebar-inner-list_item {
+    margin-bottom: 0.5rem;
+    background-color: #04778a !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid rgba(7, 7, 7, 0.125);
+}
+
+
+.sidebar-inner-list_item-icon_btn {
+    padding: 0;
+    color: #fff;
+    background: none;
+    border: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.btn-ftax-sidebar-grey {
+    color: #fff;
+    background-color: #8a9e99;
+}
+
+
+
+
+
+.border-radius-0 {
+    border-radius: 0;
+}
+
+
+.sidebar-git-commit-hash {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #129491;
+}
+
+
+.webform {
+    flex: 1 1;
+    line-height: 1.3rem;
+    background-color: #565656;
+}
+
+
+    .form-control,
+    .form-control-font-changer,
+    .return-box,
+    .invoice-box{
+        font-size: 0.85rem;
+
+    }
+    .transaction-vat-selector{
+        height:1.4rem;
+    }
+    .btn-group-sm>.btn, .btn-sm {
+        padding: .25rem .4rem;
+        font-size: .8rem;
+    }
+    .dateDivider {
+        font-size: 0.7rem !important;
+    }
+    .small{
+        font-size: 0.75rem;
+        line-height: normal;
+    }
+    .small .form-control{
+        font-size: 0.75rem !important;;
+    }
+}
+@media (max-width: 992px) {
+    .page-header{
+        top:54px !important;
+    }
+}
+
+
+
+.overview-label{
+    background-color:#fff;
+    font-size: 1.5rem;
+    color:rgb(73, 80, 87);
+    border:0px solid rgb(206, 212, 218);
+    border-width:0 0 1px 0;
+    .btn{
+        border:1px solid #004954;
+        border-radius:0;
+        color:rgb(0, 73, 84);
+        text-transform: uppercase;
+        font-weight:500;
+    }
+}
+
+.overview-page-content{
+    background-color:#f5f8f9;
+}
+.overview-page-footer{
+    background-color:#fff;
+}
+
+
+/*////////////////////////////*/
+/*FTAX MODAL*/
+
+#modal-holder{
+    font-family: "DM Sans", sans-serif;
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: rgba(0,0,0,0.5);
+    z-index:9999;
+
+    .btn{
+        border-radius:0;
+        font-weight:600;
+    }
+}
+
+#modal-wrapper{
+    background-color: rgba(255,255,255,1);
+}
+
+#modal-title{
+
+}
+

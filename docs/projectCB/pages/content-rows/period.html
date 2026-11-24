@@ -1,0 +1,88 @@
+<div class="overview-content-row-header row mt-2 gx-0 align-items-center align-items-stretch">
+    <div class="plus-minus col-auto pt-1"></div>
+    <div class="title col-auto p-1 ps-2"> </div>
+    <div class="tick col-auto ms-auto ps-2 pe-2"></div>
+    <div class="row-click-target" onclick="overviewToggleRow('period');"></div>
+</div>
+<div class="overview-content-row-header-arrow row gx-0 justify-content-end expanded-negative">
+    <div class="col-auto content-header-row-left-hand-arrow"></div>
+    <div class="col-auto content-header-row-right-hand-arrow me-5"></div>
+</div>
+
+<div class="overview-content-row-body row gx-0 expanded p-3">
+    <div class="col-12 col-lg-9 me-3">
+        <input id="period-from" data-readonly hidden>
+        <input id="period-from-days" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden value="06/04">
+        <input id="period-from-year" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden>
+        <input id="period-to" data-readonly hidden>
+        <input id="period-to-days" class="form-control p-2" onblur="touch(this);" onchange="validateOverview();" data-readonly hidden value="05/04">
+        <input id="period-to-year" class="form-control p-2" onblur="touch(this);" data-readonly hidden onchange="validateOverview();" value="2024" >
+
+        <div class="row mb-2 gx-0">
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">Period from</div>
+                    <div class="text-as-input me-1">06/04/2023</div>
+                    <div class="text-as-input me-1">06/04/2022</div>
+                    <div class="text-as-input me-1">06/04/2019</div>
+                    <div class="text-as-input me-1">06/04/2018</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="field-set">
+                    <div class="field-label p-2 mb-1">Period to</div>
+                    <div class="text-as-input me-1">06/04/2024</div>
+                    <div class="text-as-input me-1">06/04/2023</div>
+                    <div class="text-as-input me-1">06/04/2020</div>
+                    <div class="text-as-input me-1">06/04/2019</div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="field-set">
+                    <div class="field-label p-2 ps-4 pe-4 mb-1">Credit</div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check invisible"></i></div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check"></i></div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check invisible"></i></div>
+                    <div class="text-as-input me-1 text-center"><i class="fa-solid fa-check"></i></div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="field-set">
+                    <div class="field-label p-2 ps-4 pe-4 mb-1">&nbsp;</div>
+                    <div class="text-as-input text-center"><input type="radio" id="2024" name="creditYearChoice" value="2024" checked onchange="creditYearChanged(this);validateOverview();"></div>
+                    <div class="text-as-input text-center"><input type="radio" id="2023" name="creditYearChoice" value="2023" onchange="creditYearChanged(this);validateOverview();"></div>
+                    <div class="text-as-input text-center"><input type="radio" id="2020" name="creditYearChoice" value="2020" onchange="creditYearChanged(this);validateOverview();"></div>
+                    <div class="text-as-input text-center"><input type="radio" id="2019" name="creditYearChoice" value="2019" onchange="creditYearChanged(this);validateOverview();"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mb-2 gx-0">
+            <div class="col blue text-center p-2 ">
+                <p class="fs-5">Use Ftax Agent Cashbook (<span id="credit-period-short">2025/26</span>)</p>
+                <p>valid for transaction entry between <span id="credit-period-long">06/04/2025 to 05/04/2026</span></p>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <div class="col">
+        <div class="d-flex flex-column align-items-start" style="height: 100%;">
+            <div class="div mb-auto">
+                <p class="small-coding-note">NOTE: This table is not fully implemented into the demo and, for example, will not update when you assign a credit</p>
+            </div>
+            <div class="div">
+                <p class="small">Select the period then click below to continue.</p>
+                <!--        <p class="small">A credit may not yet be required. You will be prompted when a credit needs to be assigned.</p>-->
+                <button id="create" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="createClicked();">CONTINUE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overview-content-row-body-arrow row gx-0 justify-content-end expanded">
+    <div class="col-auto overview-content-row-body-arrow-left"><div class="overview-content-row-body-arrow-left-white"></div></div>
+    <div class="col-auto overview-content-row-body-arrow-right me-5"><div class="overview-content-row-body-arrow-right-white"></div></div>
+</div>

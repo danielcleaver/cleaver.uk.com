@@ -1,0 +1,52 @@
+<div class="overview-content-row-header row mt-2 gx-0 align-items-center align-items-stretch">
+    <div class="plus-minus col-auto pt-1"></div>
+    <div class="title col-auto p-1 ps-2"> </div>
+    <div class="tick col-auto ms-auto ps-2 pe-2"></div>
+    <div class="row-click-target" onclick="overviewToggleRow('pdfcopy');"></div>
+</div>
+<!--<div class="overview-content-row-header-arrow row gx-0 justify-content-end expanded-negative">-->
+<!--    <div class="col-auto content-header-row-left-hand-arrow"></div>-->
+<!--    <div class="col-auto content-header-row-right-hand-arrow me-5"></div>-->
+<!--</div>-->
+
+<div class="overview-content-row-body row gx-0 expanded p-3">
+    <div class="col-12 col-lg-9 me-3">
+
+        <div class="field-set">
+            <div class="field-label p-2 mb-1">
+                <div class="row align-items-center">
+                    <div class="col">
+                        PDF Copy not required
+                    </div>
+                    <div class="col-auto">
+                        <div class="field-wrapper">
+                            <input type="checkbox" id="pdfcopy-not-required" onblur="touch(this);" onchange="validateOverview();">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-wrapper">
+            <select id="pdfcopy-type" class="form-control p-2 required" onblur="touch(this);" onchange="validateOverview();">
+                <option value="A">Transactions for period</option>
+                <option value="B">Invoices for period</option>
+                <option value="C">Bills for period</option>
+                <option value="D" selected>Profit and Loss report for period</option>
+
+            </select>
+        </div>
+
+        <button id="generate-pdfcopy" class="btn w-100 btn-primary" type="button" onclick="alert('Generate pdfcopy and download as per other overviews.');pdfcopied=true;overviewRefresh();">PDF COPY</button>
+
+    </div>
+
+    <div class="col mt-auto">
+<!--        <p id="pdfcopy-action-button-note-agent" class="small">Click to open and pdfcopy cashbook.</p>-->
+<!--        <button id="pdfcopy-continue" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="pdfcopyClicked();">EDIT CASHBOOK</button>-->
+    </div>
+</div>
+<!--<div class="overview-content-row-body-arrow row gx-0 justify-content-end expanded">-->
+<!--    <div class="col-auto overview-content-row-body-arrow-left"><div class="overview-content-row-body-arrow-left-white"></div></div>-->
+<!--    <div class="col-auto overview-content-row-body-arrow-right me-5"><div class="overview-content-row-body-arrow-right-white"></div></div>-->
+<!--</div>-->

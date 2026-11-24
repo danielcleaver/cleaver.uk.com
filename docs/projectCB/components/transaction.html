@@ -1,0 +1,344 @@
+<!--display-->
+<div class="smooth-expandable-inverse-container">
+    <div class="smooth-expandable">
+        <div class="row gx-0 display position-relative">
+            <!--content body-->
+            <div class="col ps-sm-3 pe-sm-3 ps-2 p-1 pt-2 pb-0">
+                <!--content row 1 headline figures-->
+                <div class="row row-1 gx-0">
+                    <div class="col-auto"><i class="ignore-icon fa-solid fa-eye-slash me-1"></i></div>
+                    <div class="col description-label"></div>
+        <!--            <div class="col-auto amount-incl-vat"></div>-->
+                    <div class="col-auto">
+                        <div class="row gx-0 align-items-end">
+<!--                            <div class="col-auto">-->
+<!--                                <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                            </div>-->
+                            <div class="col-auto">
+                                <input type="text" disabled class="form-control amount-incl-vat-label amount-input field-as-text m-0 text-end" onchange="transactionFieldChanged(this);refreshPage();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--content row 2 quick edit-->
+                <div class="row row-2 quick-edit-content gx-1 mt-1">
+                    <div class="col-md-auto mb-1 Xmax-width-15-chars">
+                        <select class="z10 form-control qe-transaction-type" onchange="transactionFieldChanged(this);refreshPage();"></select>
+                    </div>
+                    <div class="col-md-auto Xmin-width-6 Xmax-width-12 mb-1">
+                        <select class="z10 form-control qe-transaction-category" onchange="transactionFieldChanged(this);refreshPage();"></select>
+                    </div>
+                    <div class="col-md-auto mb-1">
+                        <select class="z10 form-control qe-transaction-vatrate" onchange="transactionFieldChanged(this);refreshPage();"></select>
+                    </div>
+
+                    <div class="col-md-auto qe-transaction-eu-wrapper">
+                        <div class="smaller ms-1">EU</div>
+                    </div>
+                    <div class="col-md-auto qe-transaction-eu-wrapper me-3">
+                        <input type="checkbox" class="z10 form-control form-check-input form-check-input-smallest qe-transaction-eu mt-0" onchange="transactionFieldChanged(this);refreshPage();">
+                    </div>
+                    <div class="col-md-auto qe-transaction-disallowable-wrapper">
+                        <div class="smaller ms-1">disallowable</div>
+                    </div>
+                    <div class="col-md-auto qe-transaction-disallowable-wrapper">
+                        <input type="checkbox" class="z10 form-control form-check-input form-check-input-smallest qe-transaction-disallowable mt-0" onchange="transactionFieldChanged(this);refreshPage();">
+                    </div>
+
+<!--                    <div class="col-auto ms-auto">-->
+                    <div class="col-md-auto ms-auto mt-2 mt-md-0">
+                        <div class="row gx-0 justify-content-end">
+                            <div class="col-auto mb-1">
+                                <div class="row gx-0 ignore-confirm-wrapper">
+                                    <div class="col-auto me-1  ">
+                                        <select class="form-control transaction-ignoreConfirm-selector" onchange="transactionFieldChanged(this);refreshPage();">
+                                            <option value="confirm">Confirm</option>
+                                            <option value="ignore">Ignore</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" class="form-check-input m-0 ignoreConfirmTickbox" onchange="transactionFieldChanged(this);refreshPage();">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--content row 3 quick edit links-->
+                <div class="row row-3 quick-edit-content gx-0">
+                    <div class="col-auto ms-auto hide-if-do-not-use-paperwork">
+                        <a href="#0" class="z10 smaller link assign-transaction-link" onclick="assignTransaction(this);">ASSIGN</a>
+                        <a href="#0" class="z10 smaller link show-invoice-link" onclick="showInvoice(this);">view invoice</a>
+                        <a href="#0" class="z10 smaller link show-invoice_refund-link" onclick="showInvoice(this);">view invoice refund</a>
+                        <a href="#0" class="z10 smaller link show-bill-link" onclick="showBill(this);">view bill</a>
+                        <a href="#0" class="z10 smaller link show-bill_refund-link" onclick="showBill(this);">view bill refund</a>
+                    </div>
+                    <div class="show-if-do-not-use-paperwork mb-3"></div>
+                </div>
+                <!--content row 4 non-quick edit links-->
+                <div class="row row-4 smaller quick-edit-content-inverse gx-0">
+                    <div class="col display-summary"></div>
+                    <div class="col-auto hide-if-do-not-use-paperwork">
+                        <a href="#0" class="z10 smaller link assign-transaction-link" onclick="assignTransaction(this);">ASSIGN</a>
+                        <a href="#0" class="z10 smaller link show-invoice-link" onclick="showInvoice(this);">view invoice</a>
+                        <a href="#0" class="z10 smaller link show-invoice_refund-link" onclick="showInvoice(this);">view invoice refund</a>
+                        <a href="#0" class="z10 smaller link show-bill-link" onclick="showBill(this);">view bill</a>
+                        <a href="#0" class="z10 smaller link show-bill_refund-link" onclick="showBill(this);">view bill refund</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--content flag-->
+            <div class="col-auto d-flex align-items-stretch">
+                <div class="flag-bar"></div>
+            </div>
+
+            <!--content click-target-->
+            <div class="row-click-target-toplevel text-center" onclick="openEntry(this)"><i class="fa-solid fa-angle-down"></i></div>
+        </div>
+
+    </div>
+</div>
+
+<!--edit-->
+<div class="smooth-expandable-container">
+    <div class="smooth-expandable">
+        <div class="display-inverse ps-sm-1 pe-sm-1 edit-panel">
+            <!-- edit row 1 item type and guid-->
+            <div class="row gx-0 ps-1 ps-sm-0 pe-1 pe-sm-0 quiet-link" href="#0" onclick="copyContentToClipboard(this);">
+                <div class="col-auto transaction-linked me-1">
+                    <i class="fa-solid fa-share-nodes show-if-assigned"></i>
+                </div>
+                <div class="col-auto smaller">
+                    transaction:
+                </div>
+                <div class="col-auto smallest ms-auto">
+                    <span class="id"></span>
+                </div>
+            </div>
+
+            <!--edit body entry-core-->
+            <div class="row gx-0 entry-core">
+
+                <!--end bar-->
+                <div class="col-auto d-flex align-items-stretch">
+                    <div class="end-bar-text-wrapper d-flex align-items-stretch">
+                        <div class="end-bar end-bar-label text-center pt-1 pb-1"></div>
+                    </div>
+                </div>
+
+                <!--end bar arrows-->
+                <div class="col-auto d-flex align-items-stretch">
+                    <div class="end-bar-arrow-box">
+                        <div class="end-bar-arrow-box-up"></div>
+                        <div class="end-bar-arrow-box-down"></div>
+                    </div>
+                </div>
+
+                <!--edit body entry-core content-->
+                <div class="col p-2 pb-0">
+
+                    <!--edit body entry-core content row 1-->
+                    <div class="row gx-1">
+                        <div class="col-auto mb-1">
+                            <div class="top-label ms-1">payment date</div>
+                            <input type="date" class="form-control primary-date m-0 width-8-char" onblur="transactionFieldChanged(this);refreshPage();">
+                        </div>
+                        <div class="col min-width-10 mb-1">
+                            <div class="top-label ms-1">information</div>
+                            <input type="text" class="form-control description m-0" onchange="transactionFieldChanged(this);refreshPage();" placeholder="Reference for transaction...">
+                        </div>
+                        <div class="col-auto mb-1 ms-auto">
+<!--                            <div class="row gx-0 align-items-end">-->
+<!--&lt;!&ndash;                                <div class="col-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                <div class="col-auto">-->
+<!--                                    <div class="top-label me-1 text-end">total (inc. VAT)</div>-->
+<!--                                    <input type="text" class="form-control amount-incl-vat amount-input m-0 text-end" onchange="transactionFieldChanged(this);refreshPage();">-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+
+                    <!--edit body entry-core content row 2-->
+                    <div class="row gx-1">
+                        <div class="col-auto mb-1">
+                            <div class="top-label ms-1">flag</div>
+                            <select class="form-control flag" onchange="transactionFieldChanged(this);refreshPage();"></select>
+                        </div>
+                        <div class="col-auto ms-2 mb-1 show-if-ignored">
+                            <div class="top-label">ignore</div>
+                            <input type="checkbox" class="form-control form-check-input ignored-tickbox ms-auto me-auto mt-0" onchange="transactionFieldChanged(this);refreshPage();">
+                        </div>
+                        <div class="col ms-2 mb-1 d-flex align-items-end">
+                            <button class="btn btn-outline-primary btn-smaller btn-sm hide-if-ignored" type="button" onclick="ignoreTransactionClicked(this);">
+                                Ignore
+                            </button>
+                        </div>
+                        <div class="col-auto mb-1 ms-auto hide-if-totals-are-hidden">
+                            <div class="row gx-0 align-items-end">
+<!--                                <div class="col-auto">-->
+<!--                                    <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                                </div>-->
+                                <div class="col-auto">
+                                    <div class="top-label me-1 text-end">total (ex. VAT)</div>
+                                    <input type="text" disabled class="form-control amount-excl-vat amount-input m-0 text-end" onchange="transactionFieldChanged(this);refreshPage();">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto mb-1 ms-auto hide-if-totals-are-hidden">
+                            <div class="row gx-0 align-items-end">
+<!--                                <div class="col-auto">-->
+<!--                                    <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                                </div>-->
+                                <div class="col-auto">
+                                    <div class="top-label me-1 text-end">total (inc. VAT)</div>
+                                    <input type="text" class="form-control amount-incl-vat amount-input m-0 text-end" onchange="transactionFieldChanged(this);refreshPage();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--lineitems display well-->
+                    <div class="row lineitems-well-outer mt-1">
+                        <div class="smaller ms-1">items</div>
+                        <div class="lineitems-well Xps-2 Xpe-2"></div>
+                        <div class="mt-2">
+                            <a href="#0" class="smaller link" onclick="addLineItem(this);refreshPage();">ADD ITEM</a>
+                        </div>
+                    </div>
+
+                    <!--edit body entry-core content row 3-->
+                    <div class="row gx-1 Xmt-2 mb-2 hide-if-do-not-use-paperwork">
+<!--                        <div class="col-auto">-->
+<!--                            <a href="#0" class="smaller link" onclick="addLineItem(this);refreshPage();">ADD ITEM</a>-->
+<!--                        </div>-->
+                        <div class="col-auto ms-2 ms-auto">
+                            <a href="#0" class="smaller link assign-transaction-link" onclick="assignTransaction(this);">ASSIGN</a>
+                            <a href="#0" class="smaller link show-invoice-link" onclick="jumpTo(this);">view invoice</a>
+                            <a href="#0" class="smaller link show-invoice_refund-link" onclick="jumpTo(this);">view invoice refund</a>
+                            <a href="#0" class="smaller link show-bill-link" onclick="jumpTo(this);">view bill</a>
+                            <a href="#0" class="smaller link show-bill_refund-link" onclick="jumpTo(this);">view bill refund</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- tier2 -->
+            <div class="smooth-expandable-container2">
+                <div class="smooth-expandable2">
+
+
+                    <!--invoicebill display well-->
+                    <div class="invoicebill-well-outer show-if-assigned-to-bill-or-invoice mt-1">
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto show-if-assigned-to-invoice-or-invoice_refund">
+                                <div class="smaller show-if-assigned-to-invoice">assigned to invoice:</div>
+                                <div class="smaller show-if-assigned-to-invoice_refund">assigned to invoice refund:</div>
+                            </div>
+                            <div class="col-auto show-if-assigned-to-bill-or-bill_refund">
+                                <div class="smaller show-if-assigned-to-bill">assigned to bill:</div>
+                                <div class="smaller show-if-assigned-to-bill_refund">assigned to bill refund:</div>
+                            </div>
+                        </div>
+
+                        <div class="invoicebill-well-inner pt-1 pb-2 p-3">
+                            <div class="invoicebill-well ms-sm-2 ms-1 me-sm-2 me-1">
+                                <div class="inline-invoiceBill">
+                                    <div class="row gx-0 mt-1">
+                                        <div class="col-auto invoicebill-primary-date"></div>
+                                        <div class="col invoicebill-description ms-3"></div>
+                                        <div class="col-auto invoicebill-amount-incl-vat"></div>
+                                        <div class="col-auto ms-1 smaller">(inc. VAT)</div>
+                                    </div>
+                                    <div class="rox gx-0">
+                                        <div class="col-auto text-end">
+                                            <a href="#0" class="z10 smaller link" onclick="unassign(this);refreshPage();">UNASSIGN</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img class="page-corner" src="./images/page-corner.png" alt="corner">
+
+                            <div class="row-click-target" onclick="jumpTo(this);"></div>
+                        </div>
+
+                    </div>
+
+                    <!--note-->
+                    <div class="note-well Xmt-1">
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto">
+                                <div class="smaller">note:</div>
+                            </div>
+                        </div>
+                        <div class="note-well-inner">
+                            <div class="row gx-0">
+                                <div class="col">
+
+                                    <input type="text" class="form-control note-field ps-sm-4 ps-3 pe-sm-4 pe-3" placeholder="Add a note..." onchange="transactionFieldChanged(this); refreshPage();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--submission display well-->
+                    <div class="submission-well-outer show-if-included-within-tax-return mt-1">
+
+                        <div class="row gx-0 align-items-end ms-1 me-1">
+                            <div class="col-auto">
+                                <div class="smaller">included within submission:</div>
+                            </div>
+                        </div>
+
+
+                        <div class="submission-well-inner pt-1 pb-1 p-3">
+                            <div class="submission-well ms-2 me-2 pt-2"></div>
+                        </div>
+
+
+                        <div class="row gx-0 bottom-bar-arrow-box">
+                            <div class="col bottom-bar-arrow-box-left"></div>
+                            <div class="col bottom-bar-arrow-box-right"></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <!--collapse-->
+            <div class="row gx-1 align-items-end m-2 mt-2 mb-2 justify-content-end">
+                <div class="col-auto text-start smaller me-auto">
+                    <div class="show-if-deletable">
+                        <a href="#0" class="smaller link show-if-open2" onclick="deleteTransaction(this);">DELETE TRANSACTION</a>
+                    </div>
+                    <a href="#0" class="smaller link hide-if-open2" onclick="open2Entry(this);">show more</a>
+                </div>
+
+                <div class="col-auto text-center smaller closer">
+                    <button class="btn btn-outline-primary btn-smaller Xbtn-sm" type="button" onclick="openEntry(this)">
+                        Cancel
+                    </button>
+                </div>
+                <div class="col-auto text-end smaller">
+                    <button class="btn btn-primary btn-smaller Xbtn-sm" type="button" onclick="pseudoSaveEntry(this);">
+                        Save
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

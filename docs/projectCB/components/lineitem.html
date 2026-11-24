@@ -1,0 +1,95 @@
+<div class="smooth-expandable-container3">
+    <div class="smooth-expandable3">
+        <div class="lineitem-inner-wrapper  ps-0 pe-0 p-1 mb-0">
+
+            <!--content row 1 -->
+            <div class="row row-1 gx-1">
+
+                <div class="col mb-1">
+                    <div class="top-label ms-1">description</div>
+                    <input type="text" class="form-control lineitem-description min-width-10 m-0" onchange="lineitemFieldChanged(this);refreshPage();" placeholder="Description of item...">
+                </div>
+
+                <div class="col-auto mb-1 ms-auto">
+                    <div class="row gx-0 align-items-end">
+<!--                        <div class="col-auto">-->
+<!--                            <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                        </div>-->
+                        <div class="col-auto">
+                            <div class="top-label me-1 text-end">amount (ex. VAT)</div>
+                            <input type="text" step="0.01" class="INVERSEDISPLAYHolder form-control lineitem-amount-excl-vat amount-input m-0 text-end" onchange="lineitemFieldChanged(this);refreshPage();">
+                            <input type="text" step="0.01" class="INVERSEDISPLAYInput form-control lineitem-amount-excl-vat-INVERSEDISPLAY amount-input m-0 text-end" onchange="inverseDisplayFieldChanged(this);">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-auto mb-1 ms-auto">
+                    <div class="row gx-0 align-items-end">
+<!--                        <div class="col-auto">-->
+<!--                            <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                        </div>-->
+                        <div class="col-auto">
+                            <div class="top-label me-1 text-end">amount (inc. VAT)</div>
+                            <input type="text" step="0.01" class="INVERSEDISPLAYHolder form-control lineitem-amount-incl-vat amount-input m-0 text-end ms-auto" onchange="lineitemFieldChanged(this);refreshPage();">
+                            <input type="text" step="0.01" class="INVERSEDISPLAYInput form-control lineitem-amount-incl-vat-INVERSEDISPLAY amount-input m-0 text-end ms-auto" onchange="inverseDisplayFieldChanged(this);">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--content row 2 -->
+            <div class="row row-2 gx-1">
+
+                <div class="col-auto mb-1">
+                    <div class="top-label ms-1">type</div>
+                    <select class="form-control lineitem-transaction-type" onchange="lineitemFieldChanged(this);refreshPage();"></select>
+                </div>
+                <div class="col mb-1">
+                    <div class="top-label ms-1">category</div>
+                    <select class="form-control lineitem-transaction-category min-width-6" onchange="lineitemFieldChanged(this);refreshPage();"></select>
+                </div>
+                <div class="col-auto mb-1">
+                    <div class="top-label ms-1">VAT rate</div>
+                    <select class="form-control lineitem-transaction-vatrate" onchange="lineitemFieldChanged(this);refreshPage();"></select>
+                </div>
+
+            </div>
+
+            <!--content row 3 -->
+            <div class="row row-3 gx-0 mt-1 justify-content-center">
+                <div class="col-auto">
+                    <div class="row gx-1">
+                        <div class="col-auto">
+                            <div class="smaller ms-1">EU</div>
+                        </div>
+                        <div class="col-auto">
+                            <input type="checkbox" class="form-control form-check-input form-check-input-smallest lineitem-eu mt-0" onchange="lineitemFieldChanged(this);refreshPage();">
+                        </div>
+                        <div class="col-auto ms-3">
+                            <div class="smaller ms-1">disallowable</div>
+                        </div>
+                        <div class="col-auto">
+                            <input type="checkbox" class="form-control form-check-input form-check-input-smallest lineitem-disallowable mt-0" onchange="lineitemFieldChanged(this);refreshPage();">
+                        </div>
+                        <div class="col-auto d-none">
+                            <div class="top-label me-1 text-end">amount of VAT</div>
+                            <input type="text" step="0.01" class="form-control lineitem-amount-of-vat amount-input m-0 text-end" onchange="lineitemFieldChanged(this);refreshPage();">
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-end">
+                    <a href="#0" class="smaller link remove-item" onclick="removeLineitem(this);refreshPage();">REMOVE ITEM</a>
+                </div>
+
+                <div class="col-auto ms-2 lineitem-linked">
+                    <i class="fa-solid fa-share-nodes show-if-has-cousins"></i>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

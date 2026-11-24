@@ -1,0 +1,46 @@
+body{
+   background-color:#565656;
+}
+
+.page{
+   margin-bottom:45px;
+   margin-top:5px;
+   background-color:#FFFFFF;
+   background-color:#fffefa;
+   color:#000000;
+   border: 1px solid rgba(0,0,0,0.75);
+   box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.25);
+   -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.25);
+   -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.25);
+   /*background-image: url("images/paper.png");*/
+   /*background-size: 100% 100%;*/
+   background-image: url("images/squares6.png");
+   background-repeat: no-repeat;
+   background-position: center top;
+   background-size: 100%;
+}
+
+
+.ftax-tooltip .ftax-tooltiptext {
+  visibility: hidden;
+  background-color: rgba(0,0,80,0.85);
+  color: #fff;
+  padding: 10px;
+  z-index: 10;
+  left: 0%;
+  font-size:0.75em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height:3.5em;
+  width:100%;
+}
+
+
+.ftax-tooltip:hover .ftax-tooltiptext {
+  visibility: visible;
+}
+
+.nohead input{
+   border-radius:0.25rem !important;
+}

@@ -1,0 +1,104 @@
+<div class="overview-content-row-header row mt-2 gx-0 align-items-center align-items-stretch">
+    <div class="plus-minus col-auto pt-1"></div>
+    <div class="title col-auto p-1 ps-2"> </div>
+    <div class="tick col-auto ms-auto ps-2 pe-2"></div>
+    <div class="row-click-target" onclick="overviewToggleRow('bankfeed');"></div>
+</div>
+<div class="overview-content-row-header-arrow row gx-0 justify-content-end expanded-negative">
+    <div class="col-auto content-header-row-left-hand-arrow"></div>
+    <div class="col-auto content-header-row-right-hand-arrow me-5"></div>
+</div>
+
+<div class="overview-content-row-body row gx-0 expanded p-3">
+    <div class="col-12 col-lg-9 me-3">
+
+        <div class="field-set ">
+            <div class="mb-1">
+                <div class="row gx-0 align-items-start align-items-stretch">
+                    <div class="col p-2 grey me-1">
+                        <p class="fw-600 not-credited">Enable Bank Feeds (will require a credit)</p>
+                        <p class="fw-600 credited">Enable Bank Feeds</p>
+                    </div>
+                    <div class="col-auto grey p-2 me-1">
+                        <div class="row align-items-stretdch">
+                            <div class="col">
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        Yes
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" id="bankfeed-required-2" onblur="touch(this);" onchange="mutuallyExclusive(['bankfeed-required-2','bankfeed-not-required-2']);bankfeedRequiredChanged2(this);validateOverview();">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto grey p-2">
+                        <div class="row align-items-stretdch">
+                            <div class="col">
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        No
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" id="bankfeed-not-required-2" onblur="touch(this);" onchange="mutuallyExclusive(['bankfeed-not-required-2','bankfeed-required-2']);bankfeedRequiredChanged2(this);validateOverview();">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANKFEED NOTES -->
+        <div id="bankfeed-notes-2" class="field-set field-set-blue">
+            <div class="field-label p-2 mb-1">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p class="small">You will be able to setup your bank feeds once the cashbook is credited.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="bank-feed-1" class="bank-feed-item field-set field-set-red">
+            <div class="Xshare-required">
+                <div class="row gx-0 field-label p-2 pt-0 mb-1 text-center">
+                    <div class="col pt-0">
+                        <button id="reauth-bank-feed-1" class="btn w-100 btn-primary" type="button" onclick="reauthBankFeed(1);">RE-AUTHORISE <span class="fw-600">Lloyds Business plus</span> 30-96-90 10018254</button>
+
+                    </div>
+                    <div class="col-auto delete-X" onclick="panel['bankfeed']['display'][1]=false; validateOverview();">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bank-feed-0" class="bank-feed-item field-set field-set-grey">
+            <div class="Xshare-required">
+                <div class="row gx-0 field-label p-2 pt-0 mb-1 text-center">
+                    <div class="col pt-2">
+                        <span class="fw-600">Halifax Current</span> 30-06-02 10019234
+                    </div>
+                    <div class="col-auto delete-X" onclick="panel['bankfeed']['display'][0]=false; validateOverview();">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="add-bank-feed" class="btn w-100 btn-primary" type="button" onclick="addBankFeedAgentIntercept();">ADD BANK FEED</button>
+
+    </div>
+
+    <div class="col mt-auto">
+        <p id="bankfeed-action-button-note" class="small"></p>
+        <button id="bankfeed-continue" class="overview-content-row-action-button btn w-100 btn-primary" type="submit" onclick="bankfeedClicked();">CONTINUE</button>
+    </div>
+</div>
+<div class="overview-content-row-body-arrow row gx-0 justify-content-end expanded">
+    <div class="col-auto overview-content-row-body-arrow-left"><div class="overview-content-row-body-arrow-left-white"></div></div>
+    <div class="col-auto overview-content-row-body-arrow-right me-5"><div class="overview-content-row-body-arrow-right-white"></div></div>
+</div>

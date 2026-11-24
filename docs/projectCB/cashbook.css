@@ -1,0 +1,1434 @@
+* {
+    box-sizing: border-box;
+}
+
+.page-title{
+    font-size: 1.5rem;
+    color: rgba(0,0,0,0.5);
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.page-subtitle{
+    font-size: .75rem;
+    color: rgba(0,0,0,0.5);
+}
+
+
+.show-if-do-not-use-paperwork{
+    display:none !important;
+}
+
+.do-not-use-paperwork{
+    .hide-if-do-not-use-paperwork{
+        display:none !important;
+    }
+    .show-if-do-not-use-paperwork{
+        display:block !important;
+    }
+    .row.show-if-do-not-use-paperwork{
+        display:flex !important;
+    }
+}
+
+
+
+#ledger-holder{
+    font-family: "DM Sans", sans-serif;
+
+    #applyButton{
+        background-color: rgba(255,255,255,1);
+    }
+    #applyButton:hover{
+        background-color: rgba(122,9,38,1);
+    }
+
+    .transaction,
+    .invoice,
+    .bill{
+        background-color: rgba(203, 222, 217, 0.5);
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 500;
+        .edit-panel{
+            /*background-color: rgba(4,119,138,.15);*/
+            border:8px solid rgba(4,119,138,1);
+            @media screen and (max-width: 570px){
+                border-width:8px 0 8px 0;
+            }
+        }
+    }
+
+    .transaction:not(.ready),
+    .invoice:not(.ready),
+    .bill:not(.ready){
+        background-color: rgba(255, 136, 156, 0.5);
+        .edit-panel{
+            /*background-color: rgba(255, 136, 156, 0.5);*/
+            background-color: transparent;
+            border:8px solid rgba(207, 16, 65,1);
+            @media screen and (max-width: 570px){
+                border-width:8px 0 8px 0;
+            }
+        }
+
+    }
+
+    .inline-transaction{
+        /*background-color: rgba(159, 175, 171, 0.2);	!*ftax grey*!*/
+        /*background-color: rgba(203, 222, 217, 0.5);*/
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 500;
+    }
+
+    .inline-transaction:not(.ready){
+        /*background-color: rgba(207, 16, 65, 0.2);	!*ftax red*!*/
+        background-color: rgba(255, 136, 156, 0.5);
+    }
+
+
+    .row-1{
+        font-size: 1.1rem;
+    }
+
+    .ignore-icon{
+        display:none;
+    }
+
+    .show-if-ignored{
+        display:none;
+    }
+
+    .hide-if-ignored{
+        display:block;
+    }
+    .row.hide-if-ignored{
+        display:flex;
+    }
+
+    .ignored{
+        .ignore-icon{
+            display:inline-block;
+        }
+        .show-if-ignored{
+            display:block;
+        }
+        .row.show-if-ignored{
+            display:flex;
+        }
+        .hide-if-ignored{
+            display:none;
+        }
+    }
+
+
+    .show-if-open2{
+        display:none;
+    }
+
+    .open2{
+        .show-if-open2{
+            display:block;
+        }
+        .row .show-if-open2{
+            display:flex;
+        }
+
+    }
+
+    .hide-if-open2{
+        display:block;
+    }
+
+    .row .hide-if-open2{
+        display:flex;
+    }
+
+    .open2{
+        .hide-if-open2{
+            display:none;
+        }
+    }
+
+
+    .show-invoice-link,
+    .show-invoice_refund-link,
+    .show-bill-link,
+    .show-bill_refund-link,
+    .show-if-assigned-to-bill-or-invoice,
+    .show-if-assigned-to-invoice-or-invoice_refund,
+    .show-if-assigned-to-bill-or-bill_refund,
+    .show-if-assigned-to-invoice,
+    .show-if-assigned-to-invoice_refund,
+    .show-if-assigned-to-bill,
+    .show-if-assigned-to-bill_refund{
+        display:none;
+    }
+
+    .assigned-to-invoice-or-invoice_refund{
+        .assign-transaction-link{
+            display:none;
+        }
+
+        .show-if-assigned-to-bill-or-invoice,
+        .show-if-assigned-to-invoice-or-invoice_refund{
+            display:block;
+        }
+        .row.show-if-assigned-to-bill-or-invoice,
+        .row.show-if-assigned-to-invoice-or-invoice_refund{
+            display:flex;
+        }
+    }
+
+    .assigned-to-invoice{
+        .show-invoice-link,
+        .show-if-assigned-to-invoice{
+            display:block;
+        }
+    }
+    .assigned-to-invoice_refund{
+        .show-invoice_refund-link,
+        .show-if-assigned-to-invoice_refund{
+            display:block;
+        }
+    }
+
+    .assigned-to-bill-or-bill_refund{
+        .assign-transaction-link{
+            display:none;
+        }
+        .show-if-assigned-to-bill-or-invoice,
+        .show-if-assigned-to-bill-or-bill_refund{
+            display:block;
+        }
+        .row.show-if-assigned-to-bill-or-invoice,
+        .row.show-if-assigned-to-bill-or-bill_refund{
+            display:flex;
+        }
+    }
+
+    .assigned-to-bill{
+        .show-bill-link,
+        .show-if-assigned-to-bill{
+            display:block;
+        }
+    }
+    .assigned-to-bill_refund{
+        .show-bill_refund-link,
+        .show-if-assigned-to-bill_refund{
+            display:block;
+        }
+    }
+
+
+    .show-if-invoice,
+    .show-if-invoice_refund,
+    .show-if-bill,
+    .show-if-bill_refund{
+        display:none;
+    }
+
+    .invoice:not(.invoice_refund){
+        .show-if-invoice{
+            display:block;
+        }
+    }
+    .invoice_refund{
+        .show-if-invoice_refund{
+            display:block;
+        }
+    }
+
+    .bill:not(.bill_refund){
+        .show-if-bill{
+            display:block;
+        }
+    }
+    .bill_refund{
+        .show-if-bill_refund{
+            display:block;
+        }
+    }
+
+
+
+    .ignored{
+        display:none;
+    }
+
+    .show-ignored{
+        .ignored{
+            display:block;
+        }
+    }
+
+    /*.display-inverse{*/
+    /*    display:none;*/
+    /*}*/
+
+    /*.open{*/
+    /*    .display{*/
+    /*        display:none;*/
+    /*    }*/
+    /*    .display-inverse{*/
+    /*        display:block;*/
+    /*    }*/
+    /*    .row.display-inverse{*/
+    /*        display:flex;*/
+    /*    }*/
+    /*}*/
+
+    .remove-item{
+        display:none;
+    }
+
+    .multiple-lineitems{
+        .remove-item{
+            display:inline;
+        }
+    }
+
+    .mul{
+        display:none;
+    }
+    .multiple-lineitems{
+        .mul{
+            display:block;
+        }
+        .row.mul{
+            display:flex;
+        }
+    }
+
+    .show-if-paid-in-full{
+        display:none;
+    }
+    .paid-in-full{
+        .show-if-paid-in-full{
+            display:block;
+        }
+        .row.show-if-paid-in-full{
+            display:flex;
+        }
+    }
+
+    .show-if-paid-in-full-inverse{
+        display:block;
+    }
+    .row.show-if-paid-in-full-inverse{
+        display:flex;
+    }
+    .paid-in-full{
+        .show-if-paid-in-full-inverse{
+            display:none;
+        }
+    }
+
+    .show-if-null-amount{
+        visibility:hidden;
+    }
+    .null-amount{
+        .show-if-null-amount{
+            visibility:visible;
+        }
+        .row.show-if-null-amount{
+            visibility:visible;
+        }
+    }
+
+    .show-if-null-amount-inverse{
+        visibility:visible;
+    }
+    .row.show-if-null-amount-inverse{
+        visibility:visible;
+    }
+    .null-amount{
+        .show-if-null-amount-inverse{
+            visibility:hidden;
+        }
+    }
+
+    #out-button,
+    #in-button{
+        line-height: 1.25rem;
+    }
+
+    #out-button:focus,
+    #in-button:focus{
+        background: rgba(0,0,0,0);
+        /*border-color: rgba(207, 16, 65, 1);*/
+        color: rgba(207, 16, 65, 1);
+        background-color: #004954;
+        color: #fff;
+    }
+
+    .show-if-in-only,
+    .show-if-out-only{
+        display:none;
+    }
+
+    .in-only{
+        .show-if-in-only{
+            display:inline;
+        }
+        #in-button{
+            background-color: #004954;
+            color: #fff;
+        }
+    }
+    .out-only{
+        .show-if-out-only{
+            display:inline;
+        }
+        #out-button{
+            background-color: #004954;
+            color: #fff;
+        }
+    }
+
+
+
+
+
+    .qe-transaction-eu-wrapper{
+        display:none;
+    }
+    .qe-transaction-eu-present{
+        .qe-transaction-eu-wrapper{
+            display:block;
+        }
+        .row.qe-transaction-eu-wrapper{
+            display:flex;
+        }
+    }
+
+    .qe-transaction-disallowable-wrapper{
+        display:none;
+    }
+    .qe-transaction-disallowable-present{
+        .qe-transaction-disallowable-wrapper{
+            display:block;
+        }
+        .row.qe-transaction-disallowable-wrapper{
+            display:flex;
+        }
+    }
+
+    .show-if-included-within-tax-return{
+        display:none;
+    }
+    .included-within-tax-return{
+        .show-if-included-within-tax-return{
+            display:block;
+        }
+        .row.show-if-included-within-tax-return{
+            display:flex;
+        }
+    }
+
+    .show-if-deletable{
+        display:none;
+    }
+    .deletable{
+        .show-if-deletable{
+            display:block;
+        }
+        .row.show-if-deletable{
+            display:flex;
+        }
+    }
+
+    .show-if-has-cousins{
+        display:none;
+    }
+    .has-cousins{
+        .show-if-has-cousins{
+            display:block;
+        }
+        .row.show-if-has-cousins{
+            display:flex;
+        }
+        .fa-solid.show-if-has-cousins{
+            display:inline-block;
+        }
+
+    }
+
+    .show-if-assigned{
+        display:none;
+    }
+    .assigned{
+        .show-if-assigned{
+            display:block;
+        }
+        .row.show-if-assigned{
+            display:flex;
+        }
+        .fa-solid.show-if-assigned{
+            display:inline-block;
+        }
+
+    }
+
+
+    .hide-totals{
+        .hide-if-totals-are-hidden{
+            visibility:hidden;
+        }
+    }
+
+    .cashbasis{
+        .hide-if-cashbasis{
+            display:none;
+        }
+    }
+    .accrual{
+        .hide-if-accruals{
+            display:none;
+        }
+    }
+
+
+    .transaction.accrual{
+        .lineitems-well-outer{
+            display:none;
+        }
+    }
+
+    .invoice.cashbasis{
+        .lineitems-well-outer{
+            display:none;
+        }
+    }
+
+
+
+
+    .lineitem-linked,
+    .transaction-linked{
+        opacity:0.75;
+        font-size: 0.75rem;
+    }
+
+    .qe-transaction-category[readonly],
+    .qe-transaction-category:disabled,
+    .lineitem-transaction-category[readonly],
+    .lineitem-transaction-category:disabled {
+        border-color:rgba(255, 255, 255, 0.8);
+        background-color:rgba(255, 255, 255, 0.8);
+        opacity:0.5;
+    }
+
+    .qe-disabled{
+        border-color:rgba(255, 255, 255, 0.8);
+        opacity:0.5;
+        cursor: not-allowed;
+        &.qe-transaction-type,
+        &.qe-transaction-category,
+        &.qe-transaction-vatrate{
+            background-color:rgba(255, 255, 255, 0.8);
+        }
+    }
+    .qe-disabled:hover{
+        border-color:rgba(255, 255, 255, 0.8);
+        color:rgba(0,0,0,0.6);
+        opacity:0.5;
+        cursor: not-allowed;
+    }
+
+
+    .form-control.field-as-text{
+        background-color: transparent;
+        border-color: transparent;
+        border-width:0
+    }
+
+    /*.transaction{*/
+    /*    .lineitems-well .lineitem{*/
+    /*        background-color:rgba(0,0,0,0.1);*/
+    /*        background-color:rgba(0,0,0,0.05);*/
+    /*    }*/
+    /*}*/
+
+
+    .transaction{
+        .lineitems-well .lineitem .lineitem-inner-wrapper{
+            border-color:rgba(0,0,0,0.2);
+        }
+    }
+
+    .invoice,
+    .bill{
+        .lineitems-well .lineitem .lineitem-inner-wrapper{
+            border-color:rgba(255,255,255,0.4);
+        }
+    }
+
+    .lineitems-well .lineitem .lineitem-inner-wrapper{
+        border-width:0;
+        border-style:solid;
+        border-bottom-width: 1px;
+    }
+    .lineitems-well .lineitem.first-lineitem .lineitem-inner-wrapper{
+        border-style:solid;
+        border-top-width: 1px;
+    }
+
+
+    .invoicebill-well-inner{
+        background-color: rgba(0,0,0,0.1);
+        -webkit-clip-path: polygon(0 0,100% 0, 100% -webkit-calc(100% - 18px), -webkit-calc(100% - 18px) 100%, 0 100%);
+        position:relative;
+    }
+
+    .submission-well-inner{
+        background-color: rgba(4, 119, 138,0.9);
+        background-color: #04778a;
+        color:rgba(255,255,255,0.7);
+    }
+
+    .note-well{
+        .note-field{
+            /*background-color: rgba(0,0,0,0.1);*/
+            /*border-color: rgba(0,0,0,0.1);*/
+            /*color:rgba(0, 0, 0, 0.6);*/
+            /*border-radius:0;*/
+            text-overflow: ellipsis;
+        }
+    }
+
+    .edit-amount-label-wrapper{
+
+        .edit-amount-label{
+            border-color: rgba(207, 16, 65, 1);	/*ftax red*/
+            background-color: rgba(207, 16, 65, 1);	/*ftax red*/
+            color:rgba(255,255,255,1);
+            border-radius:4px;
+            .form-control{
+                color:rgba(255,255,255,1);
+            }
+        }
+
+        /*.top-label{*/
+        /*    background-color: rgba(207, 16, 65, 1);	!*ftax red*!*/
+        /*    color:rgba(255,255,255,1);*/
+        /*    border-radius:4px 4px 0 0;*/
+        /*}*/
+
+    }
+
+    .paid-in-full .edit-amount-label-wrapper{
+        .edit-amount-label{
+            background-color: rgba(4, 119, 138, 1);
+            border-color: rgba(4, 119, 138, 1);
+        }
+    }
+
+    .invoice:not(.paid-in-full):not(.null-amount),
+    .bill:not(.paid-in-full):not(.null-amount){
+        .red-if-outstanding{
+            background-color: rgba(207, 16, 65, 1); /*ftax red*/
+            color:#fff;
+            border-radius:4px;
+            .form-control{
+                color:#fff;
+            }
+        }
+
+    }
+
+    .inline-transaction{
+        border: 3px solid #747474;
+        position: relative;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 768px){
+    html{
+        /*font-size:85%;*/
+    }
+}
+
+.form-control{
+    margin-bottom:0;
+    border-width:2px;
+    border-color:rgba(255,255,255,0.8);
+}
+
+select {
+    appearance: auto !important;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.error-field,
+input[data-error="true"],
+select[data-error="true"]{
+    border-color: rgba(207, 16, 65, 1);	/*ftax red*/
+}
+
+.error-field:disabled,
+input[data-error="true"]:disabled,
+select[data-error="true"]:disabled{
+    border-color: rgba(207, 16, 65, 1);	/*ftax red*/
+}
+
+
+.colourblind-friendly .error-field,
+.colourblind-friendly input[data-error="true"],
+.colourblind-friendly select[data-error="true"]{
+    background-color:#ffa !important;
+    border-color:#ffa !important;
+}
+
+.colourblind-friendly .error-field:disabled,
+.colourblind-friendly input[data-error="true"]:disabled,
+.colourblind-friendly select[data-error="true"]:disabled{
+    background-color:rgba(255,255,175,0.4) !important;
+    border-color:rgba(255,255,175,0.4) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+a {
+    cursor:pointer;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+a:link,
+a:visited {
+    color: rgba(0, 0, 0, 0.6);
+}
+a:hover,
+a:active {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.submission-well-outer a:link,
+.submission-well-outer a:visited {
+    color: rgba(255, 255, 255, 0.9);
+}
+.submission-well-outer a:hover,
+.submission-well-outer a:active {
+    color: rgba(255, 255, 255, 1);
+}
+
+.quiet-link{
+    text-decoration: none;
+    cursor:pointer;
+    .id{
+        color:rgba(0,0,0,0);
+    }
+}
+.quiet-link:link,
+.quiet-link:visited {
+}
+.quiet-link:hover{
+    .id{
+        color:rgba(0,0,0,0.4);
+    }
+}
+
+.quiet-link:active{
+    .id{
+        color:rgba(255,255,255,0.4);
+    }
+}
+
+.row-click-target {
+    /*background-color: rgb(0, 0, 0, 0.3);*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 8;
+    cursor: pointer;
+}
+
+
+.row-click-target-toplevel {
+    /*background-color: rgb(0, 0, 0, 0.3);*/
+    height:1rem;
+    color:rgba(0,0,0,0.3);
+    position: absolute;
+    bottom: 0;
+    z-index: 8;
+    cursor: pointer;
+    width: 30%;
+    left: 35%;
+}
+.row-click-target-toplevel:hover {
+    color:rgba(255,255,255,0.7);
+    /*background-color: rgb(0, 0, 0, 0.05);*/
+    position: absolute;
+    bottom: 0;
+    z-index: 8;
+    cursor: pointer;
+}
+
+
+
+.z10{
+    z-index:10;
+}
+
+.date-well.uncredited{
+    /*background-color:rgba(0,0,0,0.1);*/
+}
+
+/* ==== TRANSACTIONS ==== */
+/* ==== INVOICES ======== */
+/* ==== BILLS =========== */
+.transaction,
+.invoice,
+.bill{
+    /* ---- flags ---- */
+    .flag-bar{
+        background-color:transparent;
+        width:0.5rem;
+    }
+
+    &.flagged-1{
+        .flag-bar{
+            background-color:rgba(0,0,255,0.5);
+        }
+    }
+    &.flagged-2{
+        .flag-bar{
+            background-color:rgba(0,136,0,0.5);
+        }
+    }
+    &.flagged-3 {
+        .flag-bar{
+            background-color:rgba(255,0,0,0.5);
+        }
+    }
+    &.flagged-4{
+        .flag-bar{
+            background-color:rgba(255,255,0,0.5);
+        }
+    }
+    &.flagged-5{
+        .flag-bar{
+            background-color:rgba(0,204,102,0.5);
+        }
+    }
+    &.flagged-6{
+        .flag-bar{
+            background-color:rgba(153,0,153,0.5);
+        }
+    }
+
+
+    /* ---- quick edit ---- */
+    .quick-edit-content{
+        display: none;
+    }
+
+    &.quick-editing{
+        .quick-edit-content{
+            display: flex;
+        }
+    }
+
+    &.quick-editing{
+        .quick-edit-content-inverse{
+            display: none;
+        }
+    }
+
+    .quick-edit-content{
+        .form-control{
+            border-radius: 3px;
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .ignore-confirm-wrapper{
+            background-color: rgba(207, 16, 65, 1);	/*ftax red*/
+            border: 2px solid rgba(207, 16, 65, 1);	/*ftax red*/
+            padding: 0rem 0rem;
+            font-weight: 400;
+            line-height: 1rem;
+            min-width:max-content;
+
+            .transaction-ignoreConfirm-selector.form-control {
+                border:0;
+                border-radius:3px;
+                font-weight:500;
+                font-size:0.85rem;
+                z-index:10;
+                position:relative;
+                color: rgba(255,255,255,1) !important;
+                background-color: rgba(207, 16, 65, 1);	/*ftax red*/
+                cursor:pointer;
+            }
+
+            .form-check-input {
+                border:0;
+                border-radius:3px;
+                color: rgba(0, 0, 0, 0.6);
+                height:1.25rem;
+                width:1.25rem;
+                z-index:10;
+                position:relative;
+                cursor:pointer;
+            }
+
+            .form-check-input:disabled {
+                pointer-events: all;
+                cursor: default;
+            }
+        }
+    }
+}
+
+
+
+.transaction{
+    .entry-core{
+        border:3px solid #747474;
+    }
+}
+
+.invoice,
+.bill{
+    .entry-core{
+
+        background-color: rgba(0,0,0,0.1);
+        -webkit-clip-path: polygon(0 0,100% 0, 100% -webkit-calc(100% - 18px), -webkit-calc(100% - 18px) 100%, 0 100%);
+        position:relative;
+
+        /*border:3px dashed #747474;*/
+    }
+}
+
+
+.top-label{
+    /*font-size: 0.6rem;*/
+    font-size: 0.70rem;
+    color:rgba(0,0,0,0.4);
+    line-height: normal;
+}
+
+.smallest{
+    /*font-size:0.6rem;*/
+    font-size:0.75rem;
+}
+
+.end-bar-text-wrapper{
+    background-color:#747474;
+}
+
+.end-bar{
+    font-size:0.65rem;
+    line-height:normal;;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+
+    color: rgba(255,255,255,0.9);
+}
+.end-bar-arrow-box{
+    color: rgba(255,255,255,0.9);
+    width:0.6rem;
+    position:relative;
+}
+.end-bar-arrow-box-up{
+    /* THIS IS THE MAGIC: using the directional keywords instead of an angle in the linear gradient property*/
+    /*background-image: linear-gradient(to right top, #747474 0%, #747474 50%, transparent 50%);*/
+    background-image: linear-gradient(to top right, #747474 0, #747474 47% , transparent calc(47% + 1px), transparent calc(47% + 1px));
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+}
+.end-bar-arrow-box-down{
+    /* THIS IS THE MAGIC: using the directional keywords instead of an angle in the linear gradient property*/
+    /*background-image: linear-gradient(to right bottom, #747474 0%, #747474 50%, transparent 50%);*/
+    background-image: linear-gradient(to right bottom, #747474 0, #747474 47% , transparent calc(47% + 1px), transparent calc(47% + 1px));
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    left: 0;
+}
+
+.bottom-bar-arrow-box{
+    position:relative;
+    height:1rem;
+}
+.bottom-bar-arrow-box-left{
+    height:100%;
+    /* THIS IS THE MAGIC: using the directional keywords instead of an angle in the linear gradient property*/
+    /*background-image: linear-gradient(to left bottom, #04778a 0%, #04778a 50%, transparent 50%);*/
+    background-image: linear-gradient(to left bottom, #04778a 0%, #04778a 47%, transparent calc(47% + 1px), transparent calc(47% + 1px));
+}
+.bottom-bar-arrow-box-right{
+    height:100%;
+    /* THIS IS THE MAGIC: using the directional keywords instead of an angle in the linear gradient property*/
+    /*background-image: linear-gradient(to right bottom, #04778a 0%, #04778a 50%, transparent 50%);*/
+    background-image: linear-gradient(to right bottom, #04778a 0%, #04778a 47%, transparent calc(47% + 1px), transparent calc(47% + 1px));
+}
+
+.closer{
+    cursor:pointer
+}
+
+.closer i{
+    position: relative;
+    font-size:2rem;
+    color:#747474;
+    top:0.85rem;
+}
+
+.amount-input{
+    width: 7em;
+}
+
+.ghost-input{
+    background:transparent;
+    border-color:transparent;
+}
+
+.INVERSEDISPLAYInput{
+    opacity:0.3 !important;
+    display:none;
+}
+.INVERSEDISPLAYHolder{
+    opacity:1 !important;
+    display:block;
+}
+
+.bill {
+    .INVERSEDISPLAYInput{
+        opacity:1 !important;
+        display:block;
+    }
+    .INVERSEDISPLAYHolder{
+        opacity:0.3 !important;
+        display:none;
+    }
+}
+
+.form-check-input{
+    /*border-radius: 3px;*/
+    /*color: rgba(0, 0, 0, 0.6);*/
+    height: 1.7em;
+    width: 1.7em;
+}
+
+
+.form-check-input-smallest{
+    /*border-radius: 3px;*/
+    /*color: rgba(0, 0, 0, 0.6);*/
+    height: 1em;
+    width: 1em;
+    line-height:1rem;
+}
+
+
+/* ==== FLAG MODAL ==== */
+
+.flag-label-row{
+
+    /* ---- flags ---- */
+    .flag-bar{
+        background-color:transparent;
+        width:0.5rem;
+    }
+
+    &.flagged-1{
+        .flag-bar{
+            background-color:rgba(0,0,255,0.5);
+        }
+        .form-control{
+            border-width:0;
+            background-color:rgba(0,0,255,0.1);
+        }
+    }
+    &.flagged-2{
+        .flag-bar{
+            background-color:rgba(0,136,0,0.5);
+        }
+        .form-control{
+            border-width:0;
+            background-color:rgba(0,136,0,0.1);
+        }
+    }
+    &.flagged-3 {
+        .flag-bar{
+            background-color:rgba(255,0,0,0.5);
+        }
+        .form-control{
+            border-width:0;
+            background-color:rgba(255,0,0,0.1);
+        }
+    }
+    &.flagged-4{
+        .flag-bar{
+            background-color:rgba(255,255,0,0.5);
+        }
+        .form-control{
+            border-width:0;
+            background-color:rgba(255,255,0,0.1);
+        }
+    }
+    &.flagged-5{
+        .flag-bar{
+            background-color:rgba(0,204,102,0.5);
+        }
+        .form-control{
+            border-width:0;
+            background-color:rgba(0,204,102,0.1);
+        }
+    }
+    &.flagged-6{
+        .flag-bar{
+            background-color:rgba(153,0,153,0.5);
+        }
+        .form-control{
+            border-width:0;
+            background-color:rgba(153,0,153,0.1);
+        }
+    }
+
+
+}
+
+
+
+.min-width-10{
+    min-width:10em;
+}
+.min-width-6{
+    min-width:6em;
+}
+
+.max-width-12{
+    max-width:12em;
+}
+.max-width-15{
+    max-width:15em;
+}
+
+.max-width-20{
+    max-width:20em;
+}
+
+
+
+
+
+.page-corner{
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
+.transaction-ignoreConfirm-selector{
+    min-width: 7em;
+}
+
+
+.btn-smaller{
+    min-width: 10.5em;
+}
+
+.btn-sm{
+    /*border-width:0;*/
+    /*padding-top:2px;*/
+    padding-bottom:2px;
+    /*font-size: 1rem;*/
+    /*font-weight: 400;*/
+    line-height:1.5rem;
+    min-width: initial;
+}
+
+
+
+@media screen and (max-width: 768px){
+    .btn-smaller{
+        min-width:9em
+    }
+    .transaction-ignoreConfirm-selector{
+        min-width: 5.5em;
+    }
+    .btn-sm{
+        /*font-size: 0.85rem;*/
+        line-height:1.25rem;
+        min-width: initial;
+    }
+}
+/*////////////////////// == MODAL STYLING == /////////////////*/
+
+#modal-wrapper{
+
+    border:2px solid #000;
+
+    .modal-row{
+        border:0px solid #e1eae8;
+    }
+
+    #modal-row-1,
+    #modal-row-2{
+        border-bottom-width:2px;
+    }
+
+    #modal-row-2{
+        min-height:5rem;
+    }
+
+    .close-modal{
+        color:#8a9e99;
+        font-size:1.25rem;
+        cursor:pointer;
+    }
+
+    #modal-body{
+        .form-control{
+            background-color:rgba(0,0,0,0.1);
+            border-color:rgba(0,0,0,0.1);
+        }
+        .form-control.form-check-input{
+            cursor:pointer;
+            width:1.5rem;
+            height:1.5rem;
+        }
+        .form-control.form-check-input:checked {
+            background-color: #0d6efd;
+        }
+
+        .scrollable-frame{
+            overflow-y:scroll;
+            height:100px;
+        }
+    }
+    .btn{
+        min-width:10rem;
+        padding:4px 12px;
+        font-size:0.9rem;
+    }
+    @media screen and (max-width: 768px){
+        .btn{
+            min-width:10rem;
+            padding:4px 12px;
+            font-size:0.75rem;
+        }
+    }
+}
+
+#modal-wrapper h1{
+    font-size:1.25rem;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+.disabledAnchor {
+    pointer-events: none;
+    visibility: hidden;
+    opacity:0.5;
+}
+.errorAnchor {
+    color:rgba(207, 16, 65, 1);
+    font-weight:700;
+}
+
+.webform,
+#modal-holder{
+    .btn-outline-primary,
+    .btn-outline-primary.btn-smaller{
+        border-color: rgba(207, 16, 65, 1);	/*!*ftax red*!*/
+        color:rgba(207, 16, 65, 1);	/*!*ftax red*!*/
+    }
+    .btn-outline-primary:hover,
+    .btn-outline-primary.btn-smaller:hover{
+        background-color:rgba(207, 16, 65, 1);	/*!*ftax red*!*/
+        color:#fff;
+    }
+}
+
+
+.btn-outline-primary.btn-smaller {
+    /*border: 1px solid #004954;*/
+}
+
+#notification{
+    font-size:0.75rem;
+    background-color:rgba(4,119,138,1);
+    color:#ffffff;
+}
+
+#notification.error{
+    background-color:rgba(207, 16, 65, 1);	/*/*ftax red*/
+}
+
+/*/////////////smooth expand////////////////*/
+
+.smooth-expandable-container,
+.smooth-expandable-inverse-container{
+    overflow: hidden;
+}
+
+.smooth-expandable-container .smooth-expandable{
+    margin-top: -200vh;
+    transition: all 1s;
+    transition-delay: 0s;
+}
+
+.open .smooth-expandable-container .smooth-expandable{
+    margin-top: 0;
+    transition: all 1s;
+    transition-delay: 0s;
+}
+
+
+.open .smooth-expandable-inverse-container .smooth-expandable{
+    margin-top: -100vh;
+    transition: all .1s;
+    transition-delay: .5s;
+}
+
+.smooth-expandable-inverse-container .smooth-expandable{
+    margin-top: 0;
+    transition: all .1s;
+}
+
+/*////*/
+
+.smooth-expandable-container2,
+.smooth-expandable-inverse-container2{
+    overflow: hidden;
+}
+
+.smooth-expandable-container2 .smooth-expandable2{
+    margin-top: -200vh;
+    transition: all 1s;
+    transition-delay: 0s;
+}
+
+.open2 .smooth-expandable-container2 .smooth-expandable2{
+    margin-top: 0;
+    transition: all 1s;
+}
+
+
+.open2 .smooth-expandable-inverse-container2 .smooth-expandable2{
+    margin-top: -100vh;
+    transition: all .1s;
+    transition-delay: 0s;
+}
+
+.smooth-expandable-inverse-container2 .smooth-expandable2{
+    margin-top: 0;
+    transition: all .1s;
+}
+
+/*////*/
+
+.smooth-expandable-container3,
+.smooth-expandable-inverse-container3{
+    overflow: hidden;
+}
+
+.smooth-expandable-container3 .smooth-expandable3{
+    margin-top: -140px;
+    transition: all .6s;
+    transition-delay: 0s;
+}
+
+.open3 .smooth-expandable-container3 .smooth-expandable3{
+    margin-top: 0;
+    transition-duration: .6s;
+    transition-delay: 0s;
+    transition-timing-function: ease-in-out;
+}
+
+
+/*.open3 .smooth-expandable-inverse-container3 .smooth-expandable3{*/
+/*    margin-top: -100vh;*/
+/*    transition: all .1s;*/
+/*    transition-delay: 0s;*/
+/*}*/
+
+/*.smooth-expandable-inverse-container3 .smooth-expandable3{*/
+/*    margin-top: 0;*/
+/*    transition: all .1s;*/
+/*}*/
+
+/*/////////////fade////////////////*/
+.fadeable{
+    visibility:hidden;
+    opacity:0;
+}
+
+.fade-in{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 3000ms;
+
+}
+
+.fade-out{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 10000s, opacity 10000ms;
+}
+
+#notification{
+    position:absolute;
+    left:7px;
+    right:-1px;
+    bottom: 2px;
+    pointer-events: none;
+}
+
+
+/*///////////////////// amounts /////////////////////*/
+
+.amount-positive{
+    font-weight: 700;
+    /*color:rgba(23,116,87,1);*/
+}
+.amount-positive:focus{
+    font-weight: 400;
+}
+
+.amount-zero{
+    color:rgba(0,0,0,0.5);
+}
+
+
+.titlebar-caption{
+    color:rgba(255,255,255,1);
+    position:relative;
+    top:6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.red{
+    color:rgba(207, 16, 65, 1);
+}

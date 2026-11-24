@@ -1,0 +1,213 @@
+html{
+   width:19cm;
+   font-family: 'Arimo', sans-serif;
+   background-color:#ffffff;
+   font-size:0.72rem;
+}
+
+body{
+   line-height:1.3rem;
+}
+
+h1,
+.h1{
+   font-size:2.0em;
+   color:#000000;
+   font-weight:700;
+   margin:0;
+}
+
+h2,
+.h2{
+   font-size:1.5rem;
+   color:#129491;
+   font-weight:700;
+   margin: 0 0 0.25rem 0;
+}
+
+h3,
+.h3{
+   font-size:1.1rem;
+   color:#129491;
+   font-weight:700;
+   margin:0;
+}
+
+h4,
+.h4{
+   font-size:1.4rem;
+   color:#000000;
+   margin:0;
+   margin:0.5rem 0 0.5rem 0;
+}
+
+.page{
+   page-break-after: always;
+   width:19cm;
+   height:27.3cm;
+   position:relative;
+   padding-top:0 !important;
+}
+.input-group-text{}
+.footer{
+   position:absolute;
+   width:100%;
+   left:0;
+   bottom:0;
+   margin:0;
+}
+
+.input-group .btn{
+   display:none;
+}
+
+.form-control{
+   xfont-size:0.75rem;
+   padding:0.1rem 0.5rem;
+   border-color:#8ebfbe;
+}
+
+.employment-title-color{
+   color:#eb088c;
+}
+
+.selfemployment-title-color{
+   color:#f58220;
+}
+
+.partnership-title-color{
+   color:#14abbd;
+}
+
+.ukproperty-title-color{
+   color:#d91f2c;
+}
+
+.foreign-title-color{
+   color:#aba235;
+}
+
+.trusts-title-color{
+   color:#84411d;
+}
+
+.capitalgains-title-color{
+   color:#26ace2;
+}
+
+.nonresidence-title-color{
+   color:#0e8278;
+}
+
+.shaded > .col-md-6 > label,
+.shaded > .col > label{
+    margin-top: 0.5rem;
+}
+
+.printed-full-width{
+    flex: 0 0 auto;
+    width: auto !important;
+}
+
+.ftax-note{
+   display:none;
+}
+
+.no-print{
+   display:none;
+}
+
+.ftax-tooltiptext{
+   display:none;
+}
+
+
+
+
+
+
+
+
+
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  float: left;
+}
+.col-md-12 {
+  width: 100%;
+}
+.col-md-11 {
+  width: 91.66666666666666%;
+}
+.col-md-10 {
+  width: 83.33333333333334%;
+}
+.col-md-9 {
+  width: 75%;
+}
+.col-md-8 {
+  width: 66.66666666666666%;
+}
+.col-md-7 {
+  width: 58.333333333333336%;
+}
+.col-md-6 {
+  width: 50%;
+}
+.col-md-5 {
+  width: 41.66666666666667%;
+}
+.col-md-4 {
+  width: 33.33333333333333%;
+ }
+ .col-md-3 {
+   width: 25%;
+ }
+ .col-md-2 {
+   width: 16.666666666666664%;
+ }
+ .col-md-1 {
+  width: 8.333333333333332%;
+ }
+ 
+ .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+  float: left;
+}
+.col-lg-12 {
+  width: 100%;
+}
+.col-lg-11 {
+  width: 91.66666666666666%;
+}
+.col-lg-10 {
+  width: 83.33333333333334%;
+}
+.col-lg-9 {
+  width: 75%;
+}
+.col-lg-8 {
+  width: 66.66666666666666%;
+}
+.col-lg-7 {
+  width: 58.333333333333336%;
+}
+.col-lg-6 {
+  width: 50%;
+}
+.col-lg-5 {
+  width: 41.66666666666667%;
+}
+.col-lg-4 {
+  width: 33.33333333333333%;
+ }
+ .col-lg-3 {
+   width: 25%;
+ }
+ .col-lg-2 {
+   width: 16.666666666666664%;
+ }
+ .col-lg-1 {
+  width: 8.333333333333332%;
+ }
+
+

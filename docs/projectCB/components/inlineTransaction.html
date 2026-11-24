@@ -1,0 +1,54 @@
+<!--edit body entry-core-->
+<div class="row gx-0 inline-transaction-inner">
+    <div class="col-auto d-flex align-items-stretch">
+        <div class="end-bar-text-wrapper d-flex align-items-stretch">
+            <div class="end-bar end-bar-label text-center pt-1 pb-1">&nbsp;</div>
+        </div>
+    </div>
+
+    <!--end bar arrows-->
+    <div class="col-auto d-flex align-items-stretch">
+        <div class="end-bar-arrow-box">
+            <div class="end-bar-arrow-box-up"></div>
+            <div class="end-bar-arrow-box-down"></div>
+        </div>
+    </div>
+
+    <!--edit body entry-core content-->
+    <div class="col p-2 pb-0">
+        <!--edit body entry-core content row 1-->
+        <div class="row gx-1">
+            <div class="col-auto Xmb-1">
+                <div class="top-label ms-1">payment date</div>
+                <input type="date" class="form-control primary-date m-0 width-8-char" onblur="transactionFieldChanged(this);refreshPage();">
+            </div>
+            <div class="col min-width-10 Xmb-1">
+                <div class="top-label ms-1">description</div>
+                <input type="text" class="form-control description m-0" onchange="transactionFieldChanged(this);refreshPage();">
+            </div>
+            <div class="col-auto Xmb-1 ms-auto">
+                <div class="row gx-0 align-items-end">
+<!--                    <div class="col-auto">-->
+<!--                        <input type="text" class="form-control m-0 text-end width-1-5-char field-as-text" disabled value="£">-->
+<!--                    </div>-->
+                    <div class="col-auto">
+                        <div class="top-label me-1 text-end">amount (inc. VAT)</div>
+                        <input type="text" class="INVERSEDISPLAYHolder form-control amount-incl-vat amount-input m-0 text-end" onchange="transactionFieldChanged(this);refreshPage();">
+                        <input type="text" class="INVERSEDISPLAYInput form-control amount-incl-vat-INVERSEDISPLAY amount-input m-0 text-end" onchange="inverseDisplayFieldChanged(this);">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gx-0">
+            <div class="col text-end">
+                <a href="#0" class="z10 smaller link unassign-transaction" onclick="unassign(this);refreshPage();">UNASSIGN</a>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class="row-click-target" onclick="jumpTo(this);"></div>
